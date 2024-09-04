@@ -1,16 +1,58 @@
-// src/screens/InitGame.js
-import React from 'react'
-import { View, Text, Button } from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView } from 'react-native'
+import { teams } from '../data/teams'
+import { getRandomTeams } from '../utils/getRandomTeams'
 
-const InitGame = ({ navigation }) => {
+import { TeamsContainer, StartGameContainer } from '../styles/containers'
+import Title from '../styles/Title'
+import TeamNameComponent from '../components/TeamName'
+import AddButton from '../components/ui/AddButton'
+import StartGameButton from '../components/ui/StartGameButton'
+
+const GameInitialization = () => {
+	const [selectedTeams, setSelectedTeams] = useState(getInitialTeams())
+
+	function getInitialTeams() {
+		return getRandomTeams(teams, 2)
+	}
+
+	const addTeam = () => {
+		if (selectedTeams.length < 4) {
+			const availableTeams = teams.filter(
+				team => !selectedTeams.includes(team)
+			)
+			const newTeam = getRandomTeams(availableTeams, 1)[0]
+			setSelectedTeams([...selectedTeams, newTeam])
+		}
+	}
+
+	const removeTeam = team => {
+		if (selectedTeams.length > 2) {
+			setSelectedTeams(selectedTeams.filter(t => t !== team))
+		}
+	}
+
 	return (
-		<View
-			style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-		>
-			<Text>Details Screen</Text>
-			<Button title="Go back" onPress={() => navigation.goBack()} />
-		</View>
+		<SafeAreaView style={{ backgroundColor: '#161616', flex: 1 }}>
+			<Title>Выберите команды:</Title>
+			<TeamsContainer>
+				{selectedTeams.map((team, index) => (
+					<TeamNameComponent
+						key={index}
+						team={team}
+						onRemove={() => removeTeam(team)}
+						canRemove={selectedTeams.length > 2}
+					/>
+				))}
+				{selectedTeams.length < 4 && (
+					<AddButton onPress={addTeam}>+ Добавить команду</AddButton>
+				)}
+			</TeamsContainer>
+			<StartGameContainer>
+				<StartGameButton>Начать игру</StartGameButton>
+			</StartGameContainer>
+		</SafeAreaView>
 	)
 }
 
-export default InitGame
+export default GameInitialization

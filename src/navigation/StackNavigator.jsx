@@ -7,19 +7,23 @@ const Stack = createNativeStackNavigator()
 
 const StackNavigator = () => {
 	return (
-		<Stack.Navigator
-			initialRouteName="Home"
-			screenOptions={{ headerShown: false }}
-		>
+		<Stack.Navigator initialRouteName="Home">
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
-				options={{ title: 'Bible alias' }}
+				options={{ title: 'Bible alias', headerShown: false }}
 			/>
 			<Stack.Screen
 				name="Init Game"
 				component={InitGame}
-				options={{ title: 'Создание игры' }}
+				options={{
+					title: 'Создание игры',
+					headerStyle: {
+						backgroundColor: '#0b0b0b',
+					},
+					headerTintColor: '#fff',
+					headerShadowVisible: false,
+				}}
 			/>
 		</Stack.Navigator>
 	)
