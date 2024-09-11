@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { teams } from '../data/teams'
 import { getRandomTeams } from '../utils/getRandomTeams'
-
 import { TeamsContainer, StartGameContainer } from '../styles/containers'
 import Title from '../styles/Title'
 import TeamNameComponent from '../components/TeamName'
 import AddButton from '../components/ui/AddButton'
 import StartGameButton from '../components/ui/StartGameButton'
 
-const GameInitialization = () => {
+const InitGameSrcreen = () => {
+	const navigation = useNavigation() // Используем хук useNavigation
 	const [selectedTeams, setSelectedTeams] = useState(getInitialTeams())
 
 	function getInitialTeams() {
@@ -49,10 +50,14 @@ const GameInitialization = () => {
 				)}
 			</TeamsContainer>
 			<StartGameContainer>
-				<StartGameButton>Начать игру</StartGameButton>
+				<StartGameButton
+					onPress={() => navigation.navigate('GameSettings')}
+				>
+					Начать игру
+				</StartGameButton>
 			</StartGameContainer>
 		</SafeAreaView>
 	)
 }
 
-export default GameInitialization
+export default InitGameSrcreen

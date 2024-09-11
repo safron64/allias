@@ -5,7 +5,7 @@ const StyledButton = styled.TouchableOpacity`
 	color: #fff;
 	font-size: 20px;
 	padding: 20px;
-	background: #000;
+	background: rgb(11, 11, 11);
 	text-align: center;
 `
 
@@ -13,6 +13,7 @@ const ButtonText = styled.Text`
 	color: #fff;
 	font-size: 20px;
 	text-align: center;
+	text-shadow: 0 1px 4px rgba(0, 255, 234, 0.796);
 `
 
 const StartGameButton = ({ onPress, children }) => (

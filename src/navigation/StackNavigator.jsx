@@ -1,7 +1,9 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from '../screens/HomeScreen'
-import InitGame from '../screens/InitGameScreen'
+import InitGameSrcreen from '../screens/InitGameScreen'
+import RulesScreen from '../screens/RulesScreen'
+import GameSettingsScreen from '../screens/GameSettingsScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -14,12 +16,36 @@ const StackNavigator = () => {
 				options={{ title: 'Bible alias', headerShown: false }}
 			/>
 			<Stack.Screen
-				name="Init Game"
-				component={InitGame}
+				name="InitGame"
+				component={InitGameSrcreen}
 				options={{
 					title: 'Создание игры',
 					headerStyle: {
-						backgroundColor: '#0b0b0b',
+						backgroundColor: 'rgb(11, 11, 11)',
+					},
+					headerTintColor: '#fff',
+					headerShadowVisible: false,
+				}}
+			/>
+			<Stack.Screen
+				name="GameSettings"
+				component={GameSettingsScreen}
+				options={{
+					title: 'Настройки игры',
+					headerStyle: {
+						backgroundColor: 'rgb(11, 11, 11)',
+					},
+					headerTintColor: '#fff',
+					headerShadowVisible: false,
+				}}
+			/>
+			<Stack.Screen
+				name="Rules"
+				component={RulesScreen}
+				options={{
+					title: 'Правила',
+					headerStyle: {
+						backgroundColor: 'rgb(11, 11, 11)',
 					},
 					headerTintColor: '#fff',
 					headerShadowVisible: false,
@@ -28,4 +54,5 @@ const StackNavigator = () => {
 		</Stack.Navigator>
 	)
 }
+
 export default StackNavigator
