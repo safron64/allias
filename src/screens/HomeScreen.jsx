@@ -4,7 +4,7 @@ import AliasLogo from '../components/ui/AliasLogo'
 import { Text } from 'react-native'
 
 const Container = styled.View`
-	background-color: #161616;
+	background-color: #282828;
 `
 
 const Buttons = styled.View`
@@ -36,7 +36,7 @@ const ButtonText = styled(Text)`
 const BG = styled.View`
 	padding-bottom: 50px;
 	background-color: rgb(11, 11, 11);
-	border-radius: 0 0 117px 117px;
+	/* border-radius: 0 0 117px 117px; */
 `
 const HomeScreen = ({ navigation }) => {
 	return (

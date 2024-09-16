@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
-import { View, Text, Switch } from 'react-native'
+import React from 'react'
+import { View, Switch } from 'react-native'
 import styled from 'styled-components/native'
 import Slider from '@react-native-community/slider'
+import useSettingsStore from '../store/SettingsStore' /// Путь к вашему хранилищу
 
 const Container = styled.View`
 	flex: 1;
-	background-color: #f5f5f5;
+	background-color: #282828;
 	padding: 20px;
+	justify-content: space-between;
 `
 
 const Title = styled.Text`
 	font-size: 24px;
-	color: #ffa500;
+	color: #00ffea;
 	margin-bottom: 20px;
+	font-weight: 500;
 `
 
 const SettingItem = styled.View`
@@ -21,12 +24,12 @@ const SettingItem = styled.View`
 
 const Label = styled.Text`
 	font-size: 18px;
-	color: #000;
+	color: #fff;
 `
 
 const SliderValue = styled.Text`
 	font-size: 24px;
-	color: #000;
+	color: #fff;
 	text-align: right;
 `
 
@@ -36,92 +39,105 @@ const Row = styled.View`
 	align-items: center;
 `
 
-const Emoji = styled.Text`
-	font-size: 32px;
-`
-
 const Button = styled.TouchableOpacity`
-	background-color: #00aaff;
-	padding: 15px;
-	border-radius: 8px;
+	background-color: #000;
+	padding: 20px;
+	border-radius: 10px;
 	align-items: center;
+	justify-self: flex-end;
 `
 
 const ButtonText = styled.Text`
 	color: white;
-	font-size: 18px;
+	font-size: 20px;
 `
 
-const GameSettingsScreen = () => {
-	const [wordCount, setWordCount] = useState(40)
-	const [roundTime, setRoundTime] = useState(70)
-	const [penaltyEnabled, setPenaltyEnabled] = useState(true)
-	const [commonLastWord, setCommonLastWord] = useState(false)
-	const [soundEnabled, setSoundEnabled] = useState(true)
+const GameSettingsScreen = ({ navigation }) => {
+	const {
+		wordCount,
+		roundTime,
+		penaltyEnabled,
+		commonLastWord,
+		soundEnabled,
+		setWordCount,
+		setRoundTime,
+		setPenaltyEnabled,
+		setCommonLastWord,
+		setSoundEnabled,
+	} = useSettingsStore()
 
 	return (
 		<Container>
-			<Title>Настройки</Title>
+			<View>
+				<Title>Настройки</Title>
 
-			<SettingItem>
-				<Row>
-					<Label>Количество слов</Label>
-					<SliderValue>{wordCount}</SliderValue>
-				</Row>
-				<Slider
-					minimumValue={10}
-					maximumValue={100}
-					step={1}
-					value={wordCount}
-					onValueChange={value => setWordCount(value)}
-				/>
-			</SettingItem>
-
-			<SettingItem>
-				<Row>
-					<Label>Время раунда (секунды)</Label>
-					<SliderValue>{roundTime}</SliderValue>
-				</Row>
-				<Slider
-					minimumValue={30}
-					maximumValue={180}
-					step={10}
-					value={roundTime}
-					onValueChange={value => setRoundTime(value)}
-				/>
-			</SettingItem>
-
-			<SettingItem>
-				<Row>
-					<Label>Штраф за пропуск</Label>
-					<Switch
-						value={penaltyEnabled}
-						onValueChange={setPenaltyEnabled}
+				<SettingItem>
+					<Row>
+						<Label>Количество слов</Label>
+						<SliderValue>{wordCount}</SliderValue>
+					</Row>
+					<Slider
+						minimumValue={10}
+						maximumValue={100}
+						step={5}
+						value={wordCount}
+						onValueChange={setWordCount}
 					/>
-				</Row>
-			</SettingItem>
+				</SettingItem>
 
-			<SettingItem>
-				<Row>
-					<Label>Общее последнее слово</Label>
-					<Switch
-						value={commonLastWord}
-						onValueChange={setCommonLastWord}
+				<SettingItem>
+					<Row>
+						<Label>Время раунда (секунды)</Label>
+						<SliderValue>{roundTime}</SliderValue>
+					</Row>
+					<Slider
+						minimumValue={30}
+						maximumValue={180}
+						step={10}
+						value={roundTime}
+						onValueChange={setRoundTime}
 					/>
-				</Row>
-			</SettingItem>
+				</SettingItem>
 
-			<SettingItem>
-				<Row>
-					<Label>Звук в игре</Label>
-					<Switch
-						value={soundEnabled}
-						onValueChange={setSoundEnabled}
-					/>
-				</Row>
-			</SettingItem>
+				<SettingItem>
+					<Row>
+						<Label>Штраф за пропуск</Label>
+						<Switch
+							value={penaltyEnabled}
+							onValueChange={setPenaltyEnabled}
+						/>
+					</Row>
+				</SettingItem>
 
-			<Button>
+				<SettingItem>
+					<Row>
+						<Label>Общее последнее слово</Label>
+						<Switch
+							value={commonLastWord}
+							onValueChange={setCommonLastWord}
+						/>
+					</Row>
+				</SettingItem>
+
+				<SettingItem>
+					<Row>
+						<Label>Звук в игре</Label>
+						<Switch
+							value={soundEnabled}
+							onValueChange={setSoundEnabled}
+						/>
+					</Row>
+				</SettingItem>
+			</View>
+			<Button
+				onPress={() =>
+					navigation.navigate('StartGame', {
+						teamOne: 'В тренде',
+						teamTwo: 'Комплекс превосходства',
+						score: 40,
+					})
+				}
+			>
 				<ButtonText>Далее</ButtonText>
 			</Button>
 		</Container>

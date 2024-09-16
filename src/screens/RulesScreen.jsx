@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 
 const Container = styled.View`
 	/* flex: 1; */
-	background-color: #2c2c2c;
+	background-color: #282828;
 	justify-content: space-between;
 	padding: 20px;
 `
@@ -45,7 +45,7 @@ const RuleText = styled.Text`
 
 const RulesScreen = () => {
 	return (
-		<View style={{ backgroundColor: '#2c2c2c', flex: 1 }}>
+		<View style={{ backgroundColor: '#282828', flex: 1 }}>
 			<Container>
 				<StatusBar barStyle="light-content" />
 				<Title>Bible Alias</Title>

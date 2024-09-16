@@ -4,6 +4,7 @@ import HomeScreen from '../screens/HomeScreen'
 import InitGameSrcreen from '../screens/InitGameScreen'
 import RulesScreen from '../screens/RulesScreen'
 import GameSettingsScreen from '../screens/GameSettingsScreen'
+import StartGameScreen from '../screens/StartGameScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -37,6 +38,14 @@ const StackNavigator = () => {
 					},
 					headerTintColor: '#fff',
 					headerShadowVisible: false,
+				}}
+			/>
+			<Stack.Screen
+				name="StartGame"
+				component={StartGameScreen}
+				options={{
+					title: 'Настройки игры',
+					headerShown: false,
 				}}
 			/>
 			<Stack.Screen
