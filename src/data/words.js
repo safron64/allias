@@ -922,7 +922,3 @@ export const data = [
 		rate: '2',
 	},
 ]
-
-data.forEach(element => {
-	console.log(element.name)
-})

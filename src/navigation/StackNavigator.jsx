@@ -3,8 +3,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from '../screens/HomeScreen'
 import InitGameSrcreen from '../screens/InitGameScreen'
 import RulesScreen from '../screens/RulesScreen'
-import GameSettingsScreen from '../screens/GameSettingsScreen'
+import GameSettingsScreen from '../screens/SettingsGameScreen'
 import StartGameScreen from '../screens/StartGameScreen'
+import GameScreen from '../screens/GameScreen'
+import RoundResultsScreen from '../screens/RoundResultsScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -44,9 +46,14 @@ const StackNavigator = () => {
 				name="StartGame"
 				component={StartGameScreen}
 				options={{
-					title: 'Настройки игры',
+					title: 'Старт игры',
 					headerShown: false,
 				}}
+			/>
+			<Stack.Screen
+				name="GameScreen"
+				component={GameScreen}
+				options={{ title: 'Игровой процесс', headerShown: false }}
 			/>
 			<Stack.Screen
 				name="Rules"
@@ -58,6 +65,14 @@ const StackNavigator = () => {
 					},
 					headerTintColor: '#fff',
 					headerShadowVisible: false,
+				}}
+			/>
+			<Stack.Screen
+				name="RoundResultsScreen"
+				component={RoundResultsScreen}
+				options={{
+					title: 'Result',
+					headerShown: false,
 				}}
 			/>
 		</Stack.Navigator>

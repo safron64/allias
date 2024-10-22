@@ -3,6 +3,7 @@ import { View, Switch } from 'react-native'
 import styled from 'styled-components/native'
 import Slider from '@react-native-community/slider'
 import useSettingsStore from '../store/SettingsStore' /// Путь к вашему хранилищу
+import DropdownLevels from '../components/ui/Dropdown'
 
 const Container = styled.View`
 	flex: 1;
@@ -74,6 +75,7 @@ const GameSettingsScreen = ({ navigation }) => {
 				<SettingItem>
 					<Row>
 						<Label>Количество слов</Label>
+
 						<SliderValue>{wordCount}</SliderValue>
 					</Row>
 					<Slider
@@ -91,7 +93,7 @@ const GameSettingsScreen = ({ navigation }) => {
 						<SliderValue>{roundTime}</SliderValue>
 					</Row>
 					<Slider
-						minimumValue={30}
+						minimumValue={10}
 						maximumValue={180}
 						step={10}
 						value={roundTime}
@@ -128,16 +130,15 @@ const GameSettingsScreen = ({ navigation }) => {
 						/>
 					</Row>
 				</SettingItem>
+
+				<SettingItem>
+					<Row>
+						<Label>Уровень</Label>
+						<DropdownLevels></DropdownLevels>
+					</Row>
+				</SettingItem>
 			</View>
-			<Button
-				onPress={() =>
-					navigation.navigate('StartGame', {
-						teamOne: 'В тренде',
-						teamTwo: 'Комплекс превосходства',
-						score: 40,
-					})
-				}
-			>
+			<Button onPress={() => navigation.navigate('StartGame')}>
 				<ButtonText>Далее</ButtonText>
 			</Button>
 		</Container>

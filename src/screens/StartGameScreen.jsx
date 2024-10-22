@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 import CrownIcon from '../../assets/CrownIcon'
 import useTeamStore from '../store/TeamStore'
 import useSettingsStore from '../store/SettingsStore'
+import useScoreStore from '../store/useScoreStore'
 
 const Container = styled.View`
 	flex: 1;
@@ -74,6 +75,7 @@ const Title = styled.Text`
 	font-weight: bold;
 	margin-bottom: 10px;
 `
+
 const Column = styled.View`
 	display: flex;
 	flex-direction: column;
@@ -82,57 +84,51 @@ const Column = styled.View`
 	margin-right: -10px;
 `
 
-const StartGameScreen = () => {
+const StartGameScreen = ({ navigation }) => {
 	const { selectedTeams } = useTeamStore()
-	const {
-		wordCount,
-		roundTime,
-		penaltyEnabled,
-		commonLastWord,
-		soundEnabled,
-		setWordCount,
-		setRoundTime,
-		setPenaltyEnabled,
-		setCommonLastWord,
-		setSoundEnabled,
-	} = useSettingsStore()
+	const { scores, currentTeamIndex, nextTeam } = useScoreStore()
+	const { wordCount } = useSettingsStore()
+
+	// Мемоизация текущей команды
+	const currentTeam = useMemo(
+		() => selectedTeams[currentTeamIndex],
+		[selectedTeams, currentTeamIndex]
+	)
 
 	return (
 		<Container>
 			<Header>
 				<TeamRow>
 					<Title>
-						РЕЙТИНГ <br />
+						РЕЙТИНГ {'\n'}
 						КОМАНД
 					</Title>
 					<Column>
 						<CrownIcon />
-						<ScoreText>{wordCount}</ScoreText>
+						<TeamText>{wordCount}</TeamText>
 					</Column>
 				</TeamRow>
-				<TeamRow>
-					<TeamText>{selectedTeams[0]}</TeamText>
-					<ScoreText>{0}</ScoreText>
-				</TeamRow>
-				<TeamRow>
-					<TeamText>{selectedTeams[1]}</TeamText>
-					<ScoreText>0</ScoreText>
-				</TeamRow>
+				{selectedTeams.map((team, index) => (
+					<TeamRow key={index}>
+						<TeamText>{team}</TeamText>
+						<ScoreText>{scores[team] || 0}</ScoreText>
+					</TeamRow>
+				))}
 			</Header>
 
-			{/* Round Information */}
 			<RoundInfo>
-				<RoundText>Раунд 1 \\ Игра 1</RoundText>
-				<RoundText>готовятся к игре</RoundText>
-				<ActiveTeamText>{selectedTeams[0]}</ActiveTeamText>
+				<RoundText>Раунд 1 / Игра 1</RoundText>
+				<RoundText>Готовятся к игре</RoundText>
+				{selectedTeams.length > 0 && (
+					<ActiveTeamText>{currentTeam}</ActiveTeamText>
+				)}
 			</RoundInfo>
 
-			{/* Start Button */}
-			<StartButton>
+			<StartButton onPress={() => navigation.navigate('GameScreen')}>
 				<StartButtonText>Поехали!</StartButtonText>
 			</StartButton>
 		</Container>
 	)
 }
 
-export default StartGameScreen
+export default React.memo(StartGameScreen)
