@@ -3,13 +3,12 @@ import styled from 'styled-components/native'
 const Logo = styled.View`
 	border: 3px solid #00ffea;
 	background-color: #000;
-	border-radius: 50%;
+	border-radius: 80px;
 	margin-top: 50px;
 	margin-bottom: 20px;
 	padding: 0 20px;
 	margin-bottom: 20px;
 	padding: 10px;
-
 	width: 160px;
 	height: 160px;
 	align-self: center;
@@ -26,12 +25,12 @@ const LogoText = styled.Text`
 	transform: translateY(20px);
 `
 
-const AliasLogo = () => {
+const alliasLogo = () => {
 	return (
 		<Logo>
-			<LogoText>Bible Alias</LogoText>
+			<LogoText>Bible allias</LogoText>
 		</Logo>
 	)
 }
 
-export default AliasLogo
+export default alliasLogo

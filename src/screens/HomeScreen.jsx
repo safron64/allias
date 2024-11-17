@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import AliasLogo from '../components/ui/AliasLogo'
+import alliasLogo from '../components/ui/alliasLogo'
 import { Text } from 'react-native'
 
 const Container = styled.View`
@@ -34,15 +34,18 @@ const ButtonText = styled(Text)`
 `
 
 const BG = styled.View`
-	padding-bottom: 50px;
+	padding-top: 40px;
+	padding-bottom: 80px;
 	background-color: rgb(11, 11, 11);
 	/* border-radius: 0 0 117px 117px; */
+	border-bottom-right-radius: 117px;
+	border-bottom-left-radius: 117px;
 `
 const HomeScreen = ({ navigation }) => {
 	return (
 		<Container style={{ flex: 1, justifyContent: 'space-between' }}>
 			<BG>
-				<AliasLogo />
+				<alliasLogo />
 			</BG>
 			<Buttons>
 				<Button onPress={() => navigation.navigate('InitGame')}>

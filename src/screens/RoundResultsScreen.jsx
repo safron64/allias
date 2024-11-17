@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, FlatList, TouchableOpacity, Modal } from 'react-native'
 import styled from 'styled-components/native'
 import ThumbsUpIcon from '../../assets/ThumbsUpIcon'
@@ -6,6 +6,7 @@ import ThumbsDownIcon from '../../assets/ThumbsDownIcon'
 import useScoreStore from '../store/useScoreStore'
 import useTeamStore from '../store/TeamStore'
 import SelectTeamModal from '../components/ui/selectTeamModal'
+import { BackHandler } from 'react-native';
 
 const Container = styled.View`
 	flex: 1;
@@ -71,7 +72,19 @@ const RoundResultsScreen = ({ route, navigation }) => {
 		}))
 	)
 
-	console.log(wordStatusArray)
+	useEffect(() => {
+		const backAction = () => {
+			// Блокируем кнопку "Назад" только на этом экране
+			return true
+		}
+
+		const backHandler = BackHandler.addEventListener(
+			'hardwareBackPress',
+			backAction
+		)
+
+		return () => backHandler.remove()
+	}, [])
 
 	const { currentTeamIndex, updateScore, nextTeam } = useScoreStore()
 	const { selectedTeams } = useTeamStore() // Доступ к store

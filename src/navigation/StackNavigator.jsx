@@ -16,7 +16,7 @@ const StackNavigator = () => {
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
-				options={{ title: 'Bible alias', headerShown: false }}
+				options={{ title: 'Bible allias', headerShown: false }}
 			/>
 			<Stack.Screen
 				name="InitGame"

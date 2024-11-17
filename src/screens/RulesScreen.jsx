@@ -48,7 +48,7 @@ const RulesScreen = () => {
 		<View style={{ backgroundColor: '#282828', flex: 1 }}>
 			<Container>
 				<StatusBar barStyle="light-content" />
-				<Title>Bible Alias</Title>
+				<Title>Bible allias</Title>
 				<Description>
 					Увлекательная командная игра для духовной компании
 				</Description>

@@ -9,7 +9,7 @@ const ThumbsDownIcon = () => (
 		id="Capa_1"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="-48.76 -48.76 585.09 585.09"
-		transform="matrix(1, 0, 0, 1, 0, 0)"
+		// transform="matrix(1, 0, 0, 1, 0, 0)"
 	>
 		<G id="SVGRepo_bgCarrier" strokeWidth="0" />
 		<G

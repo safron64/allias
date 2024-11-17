@@ -7,6 +7,7 @@ import {
 	Modal,
 	Animated,
 } from 'react-native'
+import { BackHandler } from 'react-native'
 import styled from 'styled-components/native'
 import useTeamStore from '../store/TeamStore'
 import useSettingsStore from '../store/SettingsStore'
@@ -136,6 +137,20 @@ const GameScreen = ({ navigation }) => {
 	)
 
 	const [wordIndex, setWordIndex] = useState(0)
+
+	useEffect(() => {
+		const backAction = () => {
+			// Блокируем кнопку "Назад" только на этом экране
+			return true
+		}
+
+		const backHandler = BackHandler.addEventListener(
+			'hardwareBackPress',
+			backAction
+		)
+
+		return () => backHandler.remove()
+	}, [])
 
 	useEffect(() => {
 		if (isGameStarted && timer > 0) {

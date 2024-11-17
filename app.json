@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Bible alias",
+    "name": "Bible allias",
     "slug": "my-app",
     "version": "1.0.0",
     "platforms": [
@@ -8,14 +8,7 @@
       "android",
       "web"
     ],
-    "sdkVersion": "48.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -25,8 +18,20 @@
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "extra": {
+      "eas": {
+        "projectId": "ccda8e89-4c23-45b8-89e0-ac0293e0ffa4"
+      }
+    },
+    "owner": "nktssfrn",
+    "android": {
+      "package": "bible.allias",
+      "newArchEnabled": true
     }
+  },
+  "splash": {
+    "image": "./assets/images/icon.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#ffffff"
   }
 }

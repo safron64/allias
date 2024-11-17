@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 import CrownIcon from '../../assets/CrownIcon'
 import useTeamStore from '../store/TeamStore'
 import useSettingsStore from '../store/SettingsStore'
 import useScoreStore from '../store/useScoreStore'
+import { BackHandler } from 'react-native';
 
 const Container = styled.View`
 	flex: 1;
@@ -88,6 +89,20 @@ const StartGameScreen = ({ navigation }) => {
 	const { selectedTeams } = useTeamStore()
 	const { scores, currentTeamIndex, nextTeam } = useScoreStore()
 	const { wordCount } = useSettingsStore()
+
+	useEffect(() => {
+		const backAction = () => {
+			// Блокируем кнопку "Назад" только на этом экране
+			return true
+		}
+
+		const backHandler = BackHandler.addEventListener(
+			'hardwareBackPress',
+			backAction
+		)
+
+		return () => backHandler.remove()
+	}, [])
 
 	// Мемоизация текущей команды
 	const currentTeam = useMemo(

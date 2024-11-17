@@ -9,7 +9,7 @@ const ThumbsUpIcon = () => (
 		id="Capa_1"
 		viewBox="-48.76 -48.76 585.09 585.09"
 		stroke="#00ffea"
-		transform="matrix(1, 0, 0, 1, 0, 0)"
+		// transform="matrix(1, 0, 0, 1, 0, 0)"
 	>
 		<G id="SVGRepo_bgCarrier" strokeWidth="0" />
 		<G
