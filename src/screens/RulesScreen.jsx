@@ -3,10 +3,10 @@ import { View, Text, StatusBar } from 'react-native'
 import styled from 'styled-components/native'
 
 const Container = styled.View`
-	/* flex: 1; */
 	background-color: #282828;
 	justify-content: space-between;
 	padding: 20px;
+	align-items: center;
 `
 
 const Title = styled.Text`
@@ -22,6 +22,15 @@ const Description = styled.Text`
 	font-size: 14px;
 	text-align: center;
 	margin-bottom: 20px;
+	margin-left: 10px;
+`
+
+const RuleIcon = styled.View`
+	width: 25px;
+	height: 25px;
+	background-color: rgba(0, 255, 234, 0.675);
+	border-radius: 12.5px;
+	margin-right: 15px;
 `
 
 const Rule = styled.View`
@@ -30,17 +39,15 @@ const Rule = styled.View`
 	margin-bottom: 20px;
 `
 
-const RuleIcon = styled.View`
-	width: 25px;
-	height: 25px;
-	background-color: rgba(0, 255, 234, 0.675);
-	border-radius: 15px;
-	margin-right: 15px;
-`
-
 const RuleText = styled.Text`
 	color: #ffffff;
 	font-size: 14px;
+	flex-shrink: 1;
+`
+
+const Column = styled.View`
+	width: 100%;
+	align-items: flex-start;
 `
 
 const RulesScreen = () => {
@@ -53,40 +60,42 @@ const RulesScreen = () => {
 					Увлекательная командная игра для духовной компании
 				</Description>
 
-				<Rule>
-					<RuleIcon />
-					<RuleText>
-						Задача каждого игрока – объяснить как можно больше
-						библейских слов товарищам по команде за ограниченное
-						время.
-					</RuleText>
-				</Rule>
+				<Column>
+					<Rule>
+						<RuleIcon />
+						<RuleText>
+							Задача каждого игрока – объяснить как можно больше
+							библейских слов товарищам по команде за ограниченное
+							время.
+						</RuleText>
+					</Rule>
 
-				<Rule>
-					<RuleIcon />
-					<RuleText>
-						Во время объяснения нельзя использовать однокоренные
-						слова, озвучивать перевод с иностранных языков.
-						Желательно, объяснять слова по Библии :)
-					</RuleText>
-				</Rule>
+					<Rule>
+						<RuleIcon />
+						<RuleText>
+							Во время объяснения нельзя использовать однокоренные
+							слова, озвучивать перевод с иностранных языков.
+							Желательно, объяснять слова по Библии :)
+						</RuleText>
+					</Rule>
 
-				<Rule>
-					<RuleIcon />
-					<RuleText>
-						Отгаданное слово приносит команде одно очко, а за
-						пропущенное слово команда штрафуется (в зависимости от
-						настроек).
-					</RuleText>
-				</Rule>
+					<Rule>
+						<RuleIcon />
+						<RuleText>
+							Отгаданное слово приносит команде одно очко, а за
+							пропущенное слово команда штрафуется (в зависимости
+							от настроек).
+						</RuleText>
+					</Rule>
 
-				<Rule>
-					<RuleIcon />
-					<RuleText>
-						Победителем становится команда, у которой количество
-						очков достигло заранее установленного значения.
-					</RuleText>
-				</Rule>
+					<Rule>
+						<RuleIcon />
+						<RuleText>
+							Победителем становится команда, у которой количество
+							очков достигло заранее установленного значения.
+						</RuleText>
+					</Rule>
+				</Column>
 			</Container>
 		</View>
 	)

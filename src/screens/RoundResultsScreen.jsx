@@ -5,15 +5,23 @@ import ThumbsUpIcon from '../../assets/ThumbsUpIcon'
 import ThumbsDownIcon from '../../assets/ThumbsDownIcon'
 import useScoreStore from '../store/useScoreStore'
 import useTeamStore from '../store/TeamStore'
-import SelectTeamModal from '../components/ui/selectTeamModal'
-import { BackHandler } from 'react-native';
+import SelectTeamModal from '../components/ui/SelectTeamModal'
+import { BackHandler } from 'react-native'
 
 const Container = styled.View`
-	flex: 1;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	background-color: #f5f5f5;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
+	height: auto;
+	flex: 1;
+`
+const WContainer = styled.View`
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f5f5f5;
+	padding-bottom: 5px;
+	height: auto;
 `
 
 const ScoreContainer = styled.View`
@@ -35,6 +43,7 @@ const WordContainer = styled.View`
 	align-items: center;
 	padding: 10px;
 	margin: 5px;
+
 	background-color: white;
 	border-radius: 5px;
 	width: 90%;
@@ -64,7 +73,6 @@ const ContinueButtonText = styled.Text`
 const RoundResultsScreen = ({ route, navigation }) => {
 	const { wordsArray } = route.params
 
-	// Начальное состояние для слов с их статусами
 	const [wordStatusArray, setWordStatusArray] = useState(
 		wordsArray.map(word => ({
 			word: word.word,
@@ -87,14 +95,14 @@ const RoundResultsScreen = ({ route, navigation }) => {
 	}, [])
 
 	const { currentTeamIndex, updateScore, nextTeam } = useScoreStore()
-	const { selectedTeams } = useTeamStore() // Доступ к store
+	const { selectedTeams } = useTeamStore()
 	const currentTeam = selectedTeams[currentTeamIndex]
 	const [isModalVisible, setModalVisible] = useState(false)
 
 	const handleContinue = () => {
-		updateScore(currentTeam, score) // Обновляем счет команды
-		nextTeam(selectedTeams) // Переходим к следующей команде
-		navigation.navigate('StartGame') // Возвращаемся на экран начала игры
+		updateScore(currentTeam, score)
+		nextTeam(selectedTeams)
+		navigation.navigate('StartGame')
 	}
 
 	// Локальное состояние для общего счета
@@ -170,20 +178,26 @@ const RoundResultsScreen = ({ route, navigation }) => {
 		}
 
 		return (
-			<WordContainer>
-				{/* Если это последнее слово и оно не отгадано, то отображаем "Общее" или команду */}
-				<WordText>
-					{isLastWord && item.team
-						? `${item.word} (${item.team})`
-						: `${item.word}`}
-				</WordText>
-				<View style={{ flexDirection: 'row' }}>
-					{/* При нажатии на кнопку иконка меняется только для конкретного элемента */}
-					<IconButton onPress={() => toggleWordStatus(index)}>
-						{item.status ? <ThumbsUpIcon /> : <ThumbsDownIcon />}
-					</IconButton>
-				</View>
-			</WordContainer>
+			<WContainer>
+				<WordContainer>
+					{/* Если это последнее слово и оно не отгадано, то отображаем "Общее" или команду */}
+					<WordText>
+						{isLastWord && item.team
+							? `${item.word} (${item.team})`
+							: `${item.word}`}
+					</WordText>
+					<View style={{ flexDirection: 'row' }}>
+						{/* При нажатии на кнопку иконка меняется только для конкретного элемента */}
+						<IconButton onPress={() => toggleWordStatus(index)}>
+							{item.status ? (
+								<ThumbsUpIcon />
+							) : (
+								<ThumbsDownIcon />
+							)}
+						</IconButton>
+					</View>
+				</WordContainer>
+			</WContainer>
 		)
 	}
 
@@ -199,6 +213,7 @@ const RoundResultsScreen = ({ route, navigation }) => {
 				data={wordStatusArray}
 				keyExtractor={(item, index) => index.toString()}
 				renderItem={renderWordItem}
+				style={{ marginTop: 30 }}
 			/>
 
 			{/* Кнопка продолжить */}

@@ -33,7 +33,6 @@ const TeamButtonText = styled.Text`
 	font-weight: bold;
 `
 
-// Правильная передача пропсов
 const SelectTeamModal = ({ visible, selectedTeams, handleTeamSelect }) => {
 	return (
 		<Modal visible={visible} transparent={true} animationType="slide">

@@ -5,7 +5,7 @@ import CrownIcon from '../../assets/CrownIcon'
 import useTeamStore from '../store/TeamStore'
 import useSettingsStore from '../store/SettingsStore'
 import useScoreStore from '../store/useScoreStore'
-import { BackHandler } from 'react-native';
+import { BackHandler } from 'react-native'
 
 const Container = styled.View`
 	flex: 1;
@@ -90,9 +90,9 @@ const StartGameScreen = ({ navigation }) => {
 	const { scores, currentTeamIndex, nextTeam } = useScoreStore()
 	const { wordCount } = useSettingsStore()
 
+	//блокировка кнопки назад
 	useEffect(() => {
 		const backAction = () => {
-			// Блокируем кнопку "Назад" только на этом экране
 			return true
 		}
 
@@ -104,7 +104,6 @@ const StartGameScreen = ({ navigation }) => {
 		return () => backHandler.remove()
 	}, [])
 
-	// Мемоизация текущей команды
 	const currentTeam = useMemo(
 		() => selectedTeams[currentTeamIndex],
 		[selectedTeams, currentTeamIndex]

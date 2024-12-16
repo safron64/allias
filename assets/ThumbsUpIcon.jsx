@@ -3,8 +3,8 @@ import Svg, { G, Path } from 'react-native-svg'
 const ThumbsUpIcon = () => (
 	<Svg
 		fill="#00ffea"
-		height="12px"
-		width="12px"
+		height="20px"
+		width="20px"
 		version="1.1"
 		id="Capa_1"
 		viewBox="-48.76 -48.76 585.09 585.09"

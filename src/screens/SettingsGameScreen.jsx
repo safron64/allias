@@ -93,6 +93,7 @@ const GameSettingsScreen = ({ navigation }) => {
 						<SliderValue>{roundTime}</SliderValue>
 					</Row>
 					<Slider
+						key={1}
 						minimumValue={10}
 						maximumValue={180}
 						step={10}
@@ -134,7 +135,7 @@ const GameSettingsScreen = ({ navigation }) => {
 				<SettingItem>
 					<Row>
 						<Label>Уровень</Label>
-						<DropdownLevels></DropdownLevels>
+						<DropdownLevels key={1} />
 					</Row>
 				</SettingItem>
 			</View>

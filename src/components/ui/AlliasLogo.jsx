@@ -25,7 +25,7 @@ const LogoText = styled.Text`
 	transform: translateY(20px);
 `
 
-const alliasLogo = () => {
+const AlliasLogo = () => {
 	return (
 		<Logo>
 			<LogoText>Bible allias</LogoText>
@@ -33,4 +33,4 @@ const alliasLogo = () => {
 	)
 }
 
-export default alliasLogo
+export default AlliasLogo

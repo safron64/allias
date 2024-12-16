@@ -30,7 +30,6 @@ const DropdownLevels = () => {
 
 	return (
 		<ModalSelector
-			key={1}
 			data={data}
 			initValue="Выберете уровень"
 			onChange={handleSelection}

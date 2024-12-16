@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import alliasLogo from '../components/ui/alliasLogo'
+import AlliasLogo from '../components/ui/AlliasLogo'
 import { Text } from 'react-native'
+import App from './../App'
 
 const Container = styled.View`
 	background-color: #282828;
@@ -45,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
 	return (
 		<Container style={{ flex: 1, justifyContent: 'space-between' }}>
 			<BG>
-				<alliasLogo />
+				<AlliasLogo />
 			</BG>
 			<Buttons>
 				<Button onPress={() => navigation.navigate('InitGame')}>

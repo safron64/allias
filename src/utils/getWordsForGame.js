@@ -1,9 +1,12 @@
-import { shuffle } from 'lodash' // Библиотека для перемешивания массива
+import { shuffle } from 'lodash'
 
-const getWordsForGame = (data, wordCount, difficultyLevel) => {
-	const wordsRate1 = data.filter(word => word.rate === '1')
-	const wordsRate2 = data.filter(word => word.rate === '2')
-	const wordsRate3 = data.filter(word => word.rate === '3')
+const getWordsForGame = (data, wordCount, difficultyLevel, usedWords) => {
+	const filteredData = data.filter(word => !usedWords.includes(word.name))
+
+	// Разбиваем данные по уровням
+	const wordsRate1 = filteredData.filter(word => word.rate === '1')
+	const wordsRate2 = filteredData.filter(word => word.rate === '2')
+	const wordsRate3 = filteredData.filter(word => word.rate === '3')
 
 	let selectedWords = []
 
@@ -28,14 +31,17 @@ const getWordsForGame = (data, wordCount, difficultyLevel) => {
 			...wordsRate3.slice(0, countRate3),
 		]
 	} else if (difficultyLevel === 3) {
-		// Уровень 3: 30% rate 2, 70% rate 3
-		const countRate2 = Math.round(wordCount * 0.3)
+		// Уровень 3: 15% rate 2, 85% rate 3
+		const countRate2 = Math.round(wordCount * 0.15)
 		const countRate3 = wordCount - countRate2
 
 		selectedWords = [
 			...wordsRate2.slice(0, countRate2),
 			...wordsRate3.slice(0, countRate3),
 		]
+	} else if (difficultyLevel === 4) {
+		// Уровень 4:  rate 3 100%
+		selectedWords = [...wordsRate3]
 	}
 
 	// Если выбранных слов недостаточно, добавляем слова из других уровней
@@ -52,7 +58,6 @@ const getWordsForGame = (data, wordCount, difficultyLevel) => {
 		]
 	}
 
-	// Перемешиваем слова
 	return shuffle(selectedWords).map(word => word.name)
 }
 
