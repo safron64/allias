@@ -5,7 +5,7 @@ import InitGameSrcreen from '../screens/InitGameScreen'
 import RulesScreen from '../screens/RulesScreen'
 import GameSettingsScreen from '../screens/SettingsGameScreen'
 import StartGameScreen from '../screens/StartGameScreen'
-import GameScreen from '../screens/GameScreen'
+import GameScreen from '../screens/GameScreen/GameScreen'
 import RoundResultsScreen from '../screens/RoundResultsScreen'
 
 const Stack = createNativeStackNavigator()
@@ -73,6 +73,12 @@ const StackNavigator = () => {
 				options={{
 					title: 'Result',
 					headerShown: false,
+					headerStyle: {
+						backgroundColor: 'rgb(11, 11, 11)',
+					},
+					headerTintColor: '#fff',
+					headerShadowVisible: true,
+					headerLeft: () => null,
 				}}
 			/>
 		</Stack.Navigator>

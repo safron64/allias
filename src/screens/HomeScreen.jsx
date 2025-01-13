@@ -22,7 +22,7 @@ const Button = styled.TouchableOpacity`
 	border-radius: 15px;
 	width: 60%;
 	padding-bottom: 12px;
-	border: 1px solid #00ffea;
+	border: 1px solid #00ffd2;
 `
 
 const ButtonText = styled(Text)`

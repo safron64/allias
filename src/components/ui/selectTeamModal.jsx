@@ -5,37 +5,43 @@ const ModalContainer = styled.View`
 	flex: 1;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 `
 
 const ModalContent = styled.View`
-	background-color: white;
+	background-color: #121212;
 	padding: 20px;
-	border-radius: 10px;
+	border-radius: 15px;
 	align-items: center;
+	width: 90%;
 `
 
 const ModalText = styled.Text`
-	font-size: 18px;
-	margin-bottom: 10px;
+	font-size: 20px;
+	color: #ffffff;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: center;
 `
 
 const TeamButton = styled.TouchableOpacity`
-	background-color: #4caf50;
-	padding: 10px 20px;
-	margin: 5px;
-	border-radius: 5px;
+	background-color: #00ffb3;
+	padding: 15px 25px;
+	margin: 10px;
+	border-radius: 30px;
+	width: 100%;
+	align-items: center;
 `
 
 const TeamButtonText = styled.Text`
-	color: white;
-	font-size: 16px;
+	color: #121212;
+	font-size: 18px;
 	font-weight: bold;
 `
 
 const SelectTeamModal = ({ visible, selectedTeams, handleTeamSelect }) => {
 	return (
-		<Modal visible={visible} transparent={true} animationType="slide">
+		<Modal visible={visible} transparent={true} animationType="fade">
 			<ModalContainer>
 				<ModalContent>
 					<ModalText>Какой команде засчитать слово?</ModalText>

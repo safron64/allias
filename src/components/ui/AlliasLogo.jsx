@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 const Logo = styled.View`
-	border: 3px solid #00ffea;
+	border: 3px solid #00ffd2;
 	background-color: #000;
 	border-radius: 80px;
 	margin-top: 50px;

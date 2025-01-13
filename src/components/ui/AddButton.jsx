@@ -9,7 +9,7 @@ const StyledButton = styled.TouchableOpacity`
 	font-weight: bold;
 	border-radius: 10px;
 	width: 60%;
-	border: 1px solid #00ffea;
+	border: 1px solid #00ffd2;
 	text-align: center;
 `
 

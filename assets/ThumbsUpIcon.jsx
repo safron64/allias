@@ -2,13 +2,13 @@ import Svg, { G, Path } from 'react-native-svg'
 
 const ThumbsUpIcon = () => (
 	<Svg
-		fill="#00ffea"
+		fill="#00ffd2"
 		height="20px"
 		width="20px"
 		version="1.1"
 		id="Capa_1"
 		viewBox="-48.76 -48.76 585.09 585.09"
-		stroke="#00ffea"
+		stroke="#00ffd2"
 		// transform="matrix(1, 0, 0, 1, 0, 0)"
 	>
 		<G id="SVGRepo_bgCarrier" strokeWidth="0" />

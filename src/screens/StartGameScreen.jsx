@@ -9,13 +9,14 @@ import { BackHandler } from 'react-native'
 
 const Container = styled.View`
 	flex: 1;
-	background-color: #282828;
+	background-color: #121212;
 	justify-content: space-between;
 `
 
 const Header = styled.View`
-	background-color: #00ffeab5;
+	background-color: #00ffd9a8;
 	padding: 10px 30px;
+	padding-top: 40px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 `
@@ -50,13 +51,13 @@ const RoundText = styled.Text`
 `
 
 const ActiveTeamText = styled.Text`
-	color: #00ffea;
+	color: #00ffd2;
 	font-size: 22px;
 	font-weight: bold;
 `
 
 const StartButton = styled(TouchableOpacity)`
-	background-color: #000;
+	background-color: #050505;
 	padding: 20px;
 	justify-content: center;
 	align-items: center;

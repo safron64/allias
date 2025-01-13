@@ -187,7 +187,7 @@ export const data = [
 	},
 
 	{
-		name: 'Медноеморе',
+		name: 'Медное море',
 		info: '',
 		rate: '2',
 	},

@@ -7,14 +7,14 @@ import DropdownLevels from '../components/ui/Dropdown'
 
 const Container = styled.View`
 	flex: 1;
-	background-color: #282828;
+	background-color: #121212;
 	padding: 20px;
 	justify-content: space-between;
 `
 
 const Title = styled.Text`
 	font-size: 24px;
-	color: #00ffea;
+	color: #00ffd2;
 	margin-bottom: 20px;
 	font-weight: 500;
 `
