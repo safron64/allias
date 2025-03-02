@@ -4,17 +4,18 @@ import styled from 'styled-components/native'
 import Slider from '@react-native-community/slider'
 import useSettingsStore from '../store/SettingsStore' /// Путь к вашему хранилищу
 import DropdownLevels from '../components/ui/Dropdown'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const Container = styled.View`
 	flex: 1;
-	background-color: #282828;
+	background-color: #121212;
 	padding: 20px;
 	justify-content: space-between;
 `
 
 const Title = styled.Text`
 	font-size: 24px;
-	color: #00ffea;
+	color: #00ffd2;
 	margin-bottom: 20px;
 	font-weight: 500;
 `
@@ -101,7 +102,7 @@ const GameSettingsScreen = ({ navigation }) => {
 					/>
 				</SettingItem>
 
-				<SettingItem>
+				{/* <SettingItem>
 					<Row>
 						<Label>Штраф за пропуск</Label>
 						<Switch
@@ -109,9 +110,9 @@ const GameSettingsScreen = ({ navigation }) => {
 							onValueChange={setPenaltyEnabled}
 						/>
 					</Row>
-				</SettingItem>
+				</SettingItem> */}
 
-				<SettingItem>
+				{/* <SettingItem>
 					<Row>
 						<Label>Общее последнее слово</Label>
 						<Switch
@@ -119,9 +120,9 @@ const GameSettingsScreen = ({ navigation }) => {
 							onValueChange={setCommonLastWord}
 						/>
 					</Row>
-				</SettingItem>
+				</SettingItem> */}
 
-				<SettingItem>
+				{/* <SettingItem>
 					<Row>
 						<Label>Звук в игре</Label>
 						<Switch
@@ -129,12 +130,12 @@ const GameSettingsScreen = ({ navigation }) => {
 							onValueChange={setSoundEnabled}
 						/>
 					</Row>
-				</SettingItem>
+				</SettingItem> */}
 
 				<SettingItem>
 					<Row>
 						<Label>Уровень</Label>
-						<DropdownLevels></DropdownLevels>
+						<DropdownLevels />
 					</Row>
 				</SettingItem>
 			</View>
@@ -145,4 +146,8 @@ const GameSettingsScreen = ({ navigation }) => {
 	)
 }
 
-export default GameSettingsScreen
+export default SafeAreaWrapper(React.memo(GameSettingsScreen), {
+	statusBarStyle: 'light-content',
+	statusBarHidden: false,
+	backgroundColor: '#080808',
+})

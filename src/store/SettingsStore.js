@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 const useSettingsStore = create(set => ({
 	wordCount: 40,
-	roundTime: 4,
+	roundTime: 40,
 	penaltyEnabled: true,
 	commonLastWord: false,
 	soundEnabled: true,

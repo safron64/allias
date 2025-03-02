@@ -7,7 +7,7 @@ const TeamNameContainer = styled.View`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	background-color: #00ffea;
+	background-color: #00ffd2;
 	margin-top: 5px;
 	border-radius: 5px;
 	border: 1px solid #000;

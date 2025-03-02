@@ -5,17 +5,19 @@ import CrownIcon from '../../assets/CrownIcon'
 import useTeamStore from '../store/TeamStore'
 import useSettingsStore from '../store/SettingsStore'
 import useScoreStore from '../store/useScoreStore'
-import { BackHandler } from 'react-native';
+import { BackHandler } from 'react-native'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const Container = styled.View`
 	flex: 1;
-	background-color: #282828;
+	background-color: #121212;
 	justify-content: space-between;
 `
 
 const Header = styled.View`
-	background-color: #00ffeab5;
+	background-color: #00ffd2;
 	padding: 10px 30px;
+	padding-top: 40px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 `
@@ -28,12 +30,12 @@ const TeamRow = styled.View`
 `
 
 const TeamText = styled.Text`
-	color: white;
+	color: #554f4f;
 	font-size: 18px;
 `
 
 const ScoreText = styled.Text`
-	color: white;
+	color: #554f4f;
 	font-size: 18px;
 	font-weight: 500;
 `
@@ -50,13 +52,13 @@ const RoundText = styled.Text`
 `
 
 const ActiveTeamText = styled.Text`
-	color: #00ffea;
+	color: #00ffd2;
 	font-size: 22px;
 	font-weight: bold;
 `
 
 const StartButton = styled(TouchableOpacity)`
-	background-color: #000;
+	background-color: #050505;
 	padding: 20px;
 	justify-content: center;
 	align-items: center;
@@ -90,9 +92,9 @@ const StartGameScreen = ({ navigation }) => {
 	const { scores, currentTeamIndex, nextTeam } = useScoreStore()
 	const { wordCount } = useSettingsStore()
 
+	//блокировка кнопки назад
 	useEffect(() => {
 		const backAction = () => {
-			// Блокируем кнопку "Назад" только на этом экране
 			return true
 		}
 
@@ -104,7 +106,6 @@ const StartGameScreen = ({ navigation }) => {
 		return () => backHandler.remove()
 	}, [])
 
-	// Мемоизация текущей команды
 	const currentTeam = useMemo(
 		() => selectedTeams[currentTeamIndex],
 		[selectedTeams, currentTeamIndex]
@@ -146,4 +147,8 @@ const StartGameScreen = ({ navigation }) => {
 	)
 }
 
-export default React.memo(StartGameScreen)
+export default SafeAreaWrapper(React.memo(StartGameScreen), {
+	statusBarStyle: 'dark-content',
+	statusBarHidden: false,
+	backgroundColor: '#00ffd2',
+})

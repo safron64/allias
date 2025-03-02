@@ -1,10 +1,9 @@
-// store/TeamStore.js
 import { create } from 'zustand'
 import { teams } from '../data/teams'
 import { getRandomTeams } from '../utils/getRandomTeams'
 
 const useTeamStore = create(set => ({
-	selectedTeams: getRandomTeams(teams, 2), // Начальное состояние команд
+	selectedTeams: getRandomTeams(teams, 2),
 	addTeam: () => {
 		set(state => {
 			if (state.selectedTeams.length >= 4) return state
