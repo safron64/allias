@@ -8,15 +8,35 @@
       },
       "ios": {
         "simulator": true
-      }
+      },
+      "releaseChannel": "development"
     },
     "production": {
+      "env": {
+        "KOTLIN_VERSION": "1.9.24"
+      },
       "android": {
         "buildType": "apk"
       },
       "ios": {
         "distribution": "store"
-      }
+      },
+      "releaseChannel": "production"
+    },
+    "preview": {
+      "env": {
+        "KOTLIN_VERSION": "1.9.24"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "distribution": "internal"
+      },
+      "releaseChannel": "preview"
     }
+  },
+  "cli": {
+    "appVersionSource": "remote"
   }
 }

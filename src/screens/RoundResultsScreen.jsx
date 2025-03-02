@@ -1,156 +1,243 @@
-// import React, { useState, useEffect } from 'react'
-// import {
-// 	View,
-// 	Text,
-// 	FlatList,
-// 	TouchableOpacity,
-// 	BackHandler,
-// } from 'react-native'
-// import styled from 'styled-components/native'
-// import ThumbsUpIcon from '../../assets/ThumbsUpIcon'
-// import ThumbsDownIcon from '../../assets/ThumbsDownIcon'
-// import useScoreStore from '../store/useScoreStore'
-// import useTeamStore from '../store/TeamStore'
-// import SelectTeamModal from '../components/ui/SelectTeamModal'
-
-// const RoundResultsScreen = ({ route, navigation }) => {
-// 	const { wordsArray } = route.params
-
-// 	const [wordStatusArray, setWordStatusArray] = useState(
-// 		wordsArray.map(word => ({
-// 			word: word.word,
-// 			status: word.status,
-// 		}))
-// 	)
-
-// 	const [score, setScore] = useState(() =>
-// 		wordStatusArray.reduce(
-// 			(total, word) =>
-// 				total +
-// 				(word.status === true ? 1 : word.status !== undefined ? -1 : 0),
-// 			0
-// 		)
-// 	)
-
-// 	const { currentTeamIndex, updateScore, nextTeam } = useScoreStore()
-// 	const { selectedTeams } = useTeamStore()
-// 	const currentTeam = selectedTeams[currentTeamIndex]
-
-// 	const [isModalVisible, setModalVisible] = useState(false)
-
-// 	useEffect(() => {
-// 		const backAction = () => {
-// 			// Disable back button on this screen
-// 			return true
-// 		}
-
-// 		const backHandler = BackHandler.addEventListener(
-// 			'hardwareBackPress',
-// 			backAction
-// 		)
-
-// 		return () => backHandler.remove()
-// 	}, [])
-
-// 	const handleContinue = () => {
-// 		updateScore(currentTeam, score)
-// 		nextTeam(selectedTeams)
-// 		navigation.navigate('StartGame')
-// 	}
-
-// 	const handleTeamSelect = team => {
-// 		setWordStatusArray(prevArray => {
-// 			const updatedArray = [...prevArray]
-// 			const lastWordIndex = updatedArray.length - 1
-// 			updatedArray[lastWordIndex].team = team
-// 			if (team === currentTeam) {
-// 				setScore(prevScore => prevScore + 1)
-// 			} else {
-// 				updateScore(team, 1)
-// 			}
-// 			return updatedArray
-// 		})
-// 		setModalVisible(false)
-// 	}
-
-// 	const renderWordItem = ({ item, index }) => {
-// 		const isLastWord = index === wordStatusArray.length - 1
-
-// 		const toggleWordStatus = () => {
-// 			setWordStatusArray(prevArray => {
-// 				const updatedArray = [...prevArray]
-// 				updatedArray[index].status = !updatedArray[index].status
-// 				return updatedArray
-// 			})
-// 			setScore(prevScore => prevScore + (item.status ? -1 : 1))
-// 			if (isLastWord) {
-// 				setModalVisible(true)
-// 			}
-// 		}
-
-// 		return (
-// 			<WordContainer>
-// 				<WordText>
-// 					{isLastWord && item.team
-// 						? `${item.word} (${item.team})`
-// 						: item.word}
-// 				</WordText>
-// 				<View style={{ flexDirection: 'row' }}>
-// 					<IconButton onPress={toggleWordStatus}>
-// 						{item.status ? <ThumbsUpIcon /> : <ThumbsDownIcon />}
-// 					</IconButton>
-// 				</View>
-// 			</WordContainer>
-// 		)
-// 	}
-
-// 	return (
-// 		<Container>
-// 			<ScoreContainer>
-// 				<ScoreText>Набрано очков: {score}</ScoreText>
-// 			</ScoreContainer>
-// 			<FlatList
-// 				data={wordStatusArray}
-// 				keyExtractor={(item, index) => index.toString()}
-// 				renderItem={renderWordItem}
-// 				contentContainerStyle={{
-// 					paddingBottom: 20,
-// 				}}
-// 				style={{ marginTop: 30, width: '100%' }}
-// 			/>
-// 			<SelectTeamModal
-// 				visible={isModalVisible}
-// 				selectedTeams={selectedTeams}
-// 				handleTeamSelect={handleTeamSelect}
-// 			/>
-// 			<ContinueButton onPress={handleContinue}>
-// 				<ContinueButtonText>Продолжить</ContinueButtonText>
-// 			</ContinueButton>
-// 		</Container>
-// 	)
-// }
-
-// export default RoundResultsScreen
-
-// // Стили
-
-
-
-
-
 import React, { useState, useEffect } from 'react'
-import { View, Text, FlatList, TouchableOpacity, Modal } from 'react-native'
+import { View, Text, FlatList, BackHandler } from 'react-native'
 import styled from 'styled-components/native'
 import ThumbsUpIcon from '../../assets/ThumbsUpIcon'
 import ThumbsDownIcon from '../../assets/ThumbsDownIcon'
 import useScoreStore from '../store/useScoreStore'
 import useTeamStore from '../store/TeamStore'
+import useSettingsStore from '../store/SettingsStore'
 import SelectTeamModal from '../components/ui/SelectTeamModal'
-import { BackHandler } from 'react-native'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
+import { Linking } from 'react-native'
+
+const RoundResultsScreen = ({ route, navigation }) => {
+	// Берём количество слов (например, порог победы) из настроек
+	const { wordCount } = useSettingsStore()
+	const winningScore = wordCount
+
+	// Из параметров экрана получаем массив слов раунда
+	const { wordsArray } = route.params
+
+	// Локальное состояние для слов с их статусом и (для последнего слова) выбранной командой
+	const [wordStatusArray, setWordStatusArray] = useState(
+		wordsArray.map(word => ({
+			word: word.word,
+			status: word.status,
+			team: undefined,
+		}))
+	)
+
+	// Блокируем кнопку "Назад" на Android
+	useEffect(() => {
+		const backAction = () => true
+		const backHandler = BackHandler.addEventListener(
+			'hardwareBackPress',
+			backAction
+		)
+		return () => backHandler.remove()
+	}, [])
+
+	// Достаем необходимые функции и состояния из глобального стора
+	const {
+		currentTeamIndex,
+		updateScore,
+		nextTeam,
+		extraRound,
+		setExtraRound,
+		scores,
+	} = useScoreStore()
+	const { selectedTeams } = useTeamStore()
+	const currentTeam = selectedTeams[currentTeamIndex]
+
+	// Состояние для управления видимостью модального окна выбора команды для последнего слова
+	const [isModalVisible, setModalVisible] = useState(false)
+
+	// Локальный счёт раунда, вычисляемый на основании массива слов
+	const [score, setScore] = useState(() =>
+		wordStatusArray.reduce(
+			(total, word) =>
+				total +
+				(word.status === true ? 1 : word.status !== undefined && -0),
+			0
+		)
+	)
+
+	// Функция для открытия модального окна
+	const openModal = () => {
+		setModalVisible(true)
+	}
+
+	// Обработчик выбора команды в модальном окне (для последнего слова)
+	const handleTeamSelect = team => {
+		setWordStatusArray(prevArray => {
+			const updatedArray = [...prevArray]
+			const lastWordIndex = updatedArray.length - 1
+			updatedArray[lastWordIndex].team = team
+			if (team === currentTeam) {
+				setScore(prevScore => prevScore + 1)
+			} else {
+				updateScore(team, 1)
+			}
+			return updatedArray
+		})
+		setModalVisible(false)
+	}
+
+	// Функция для переключения статуса слова (при нажатии на иконку)
+	const toggleWordStatus = index => {
+		const isLastWord = index === wordStatusArray.length - 1
+		if (isLastWord) {
+			setWordStatusArray(prevArray => {
+				const updatedArray = [...prevArray]
+				const currentStatus = updatedArray[index].status
+				// Если для последнего слова уже выбрана команда – отменяем выбор
+				if (updatedArray[index].team === currentTeam) {
+					updatedArray[index].team = undefined
+					setScore(prevScore => prevScore - 0)
+				} else if (updatedArray[index].team) {
+					// Если выбрана другая команда, то корректируем общий счёт этой команды
+					updateScore(updatedArray[index].team, -0)
+					updatedArray[index].team = undefined
+				}
+				// Переключаем статус слова
+				updatedArray[index].status = !currentStatus
+				return updatedArray
+			})
+			// Если слово переключается в состояние "отгадано", открываем модальное окно для выбора команды
+			if (!wordStatusArray[index].status) {
+				openModal()
+			}
+		} else {
+			setWordStatusArray(prevArray => {
+				const updatedArray = [...prevArray]
+				const currentStatus = updatedArray[index].status
+				updatedArray[index].status = !currentStatus
+				return updatedArray
+			})
+			// При переключении не последнего слова корректируем счёт (например, +2 или -2)
+			setScore(prevScore => {
+				// Здесь логика расчёта может быть изменена под ваши нужды
+				return wordStatusArray[index].status
+					? prevScore + 1
+					: prevScore - 1
+			})
+		}
+	}
+
+	// Рендер одного элемента списка слов
+	const renderWordItem = ({ item, index }) => (
+		<WContainer>
+			<WordContainer>
+				<WordText
+					style={{ textDecorationLine: 'underline' }}
+					onPress={() =>
+						Linking.openURL(
+							`https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/${item.word.replace(
+								/\s+/g,
+								'-'
+							)}/`
+						)
+					}
+				>
+					{index === wordStatusArray.length - 1 && item.team
+						? `${item.word} (${item.team})`
+						: `${item.word}`}
+				</WordText>
+				<View style={{ flexDirection: 'row' }}>
+					<IconButton onPress={() => toggleWordStatus(index)}>
+						{item.status ? <ThumbsUpIcon /> : <ThumbsDownIcon />}
+					</IconButton>
+				</View>
+			</WordContainer>
+		</WContainer>
+	)
+
+	// Обработчик нажатия на кнопку "Продолжить"
+	const handleContinue = () => {
+		// Обновляем счёт для текущей команды
+		updateScore(currentTeam, score)
+
+		// Вычисляем новый cumulative (общий) счёт с учётом набранных очков в этом раунде
+		const newScore = {
+			...scores,
+			[currentTeam]: (scores[currentTeam] || 0) + score,
+		}
+
+		// Если уже сыгран дополнительный раунд, сравниваем очки и определяем победителя
+		if (extraRound) {
+			if (newScore[selectedTeams[1]] > newScore[selectedTeams[0]]) {
+				navigation.navigate('VictoryScreen', {
+					winningTeam: selectedTeams[1],
+					scores: newScore,
+				})
+			} else {
+				navigation.navigate('VictoryScreen', {
+					winningTeam: selectedTeams[0],
+					scores: newScore,
+				})
+			}
+			// Сбрасываем флаг дополнительного раунда для новой игры
+			setExtraRound(false)
+			return
+		}
+
+		// Если текущая команда достигла или превысила порог winningScore…
+		if (newScore[currentTeam] >= winningScore) {
+			// Если побеждает команда, которая не начинала игру (не первая), сразу показываем экран победы
+			if (currentTeam !== selectedTeams[0]) {
+				navigation.navigate('VictoryScreen', {
+					winningTeam: currentTeam,
+					scores: newScore,
+				})
+				return
+			} else {
+				// Если первая команда достигла winningScore, даём ей дополнительный раунд –
+				// переключаем очередь на вторую команду и передаём параметр extraRound
+				setExtraRound(true)
+				nextTeam(selectedTeams) // переключаем текущую команду
+				navigation.navigate('StartGame', { extraRound: true })
+				return
+			}
+		}
+
+		// Если ни одна команда не достигла winningScore, переключаемся на следующий раунд
+		nextTeam(selectedTeams)
+		navigation.navigate('StartGame')
+	}
+
+	return (
+		<Container>
+			<ScoreContainer>
+				<ScoreText>Набрано очков: {score}</ScoreText>
+			</ScoreContainer>
+			<FlatList
+				data={wordStatusArray}
+				keyExtractor={(item, index) => index.toString()}
+				renderItem={renderWordItem}
+				style={{ marginTop: 30 }}
+			/>
+			<ContinueButton onPress={handleContinue}>
+				<ContinueButtonText>Продолжить</ContinueButtonText>
+			</ContinueButton>
+			<SelectTeamModal
+				visible={isModalVisible}
+				selectedTeams={selectedTeams}
+				handleTeamSelect={handleTeamSelect}
+			/>
+		</Container>
+	)
+}
+
+export default SafeAreaWrapper(React.memo(RoundResultsScreen), {
+	statusBarStyle: 'light-content',
+	statusBarHidden: false,
+	backgroundColor: '#080808',
+})
+
+// Стили
 const WContainer = styled.View`
 	justify-content: space-between;
 	align-items: center;
-	/* background-color: #f5f5f5; */
 	padding-bottom: 5px;
 	height: auto;
 `
@@ -203,7 +290,7 @@ const ContinueButton = styled.TouchableOpacity`
 	padding: 15px 30px;
 	border-radius: 30px;
 	margin-bottom: 10px;
-	margin-top: 10px
+	margin-top: 10px;
 `
 
 const ContinueButtonText = styled.Text`
@@ -211,165 +298,3 @@ const ContinueButtonText = styled.Text`
 	font-size: 18px;
 	font-weight: bold;
 `
-const RoundResultsScreen = ({ route, navigation }) => {
-	const { wordsArray } = route.params
-
-	const [wordStatusArray, setWordStatusArray] = useState(
-		wordsArray.map(word => ({
-			word: word.word,
-			status: word.status,
-		}))
-	)
-
-	useEffect(() => {
-		const backAction = () => {
-			// Блокируем кнопку "Назад" только на этом экране
-			return true
-		}
-
-		const backHandler = BackHandler.addEventListener(
-			'hardwareBackPress',
-			backAction
-		)
-
-		return () => backHandler.remove()
-	}, [])
-
-	const { currentTeamIndex, updateScore, nextTeam } = useScoreStore()
-	const { selectedTeams } = useTeamStore()
-	const currentTeam = selectedTeams[currentTeamIndex]
-	const [isModalVisible, setModalVisible] = useState(false)
-
-	const handleContinue = () => {
-		updateScore(currentTeam, score)
-		nextTeam(selectedTeams)
-		navigation.navigate('StartGame')
-	}
-
-	// Локальное состояние для общего счета
-	const [score, setScore] = useState(() => {
-		return wordStatusArray.reduce(
-			(total, word) =>
-				total +
-				(word.status === true ? 1 : word.status !== undefined && -1),
-			0
-		)
-	})
-
-	// Открыть модальное окно при нажатии на "Общее" для последнего слова
-	const openModal = () => {
-		setModalVisible(true)
-	}
-
-	// Закрыть модальное окно и обновить команду для последнего слова
-	const handleTeamSelect = team => {
-		setWordStatusArray(prevArray => {
-			const updatedArray = [...prevArray]
-			const lastWordIndex = updatedArray.length - 1
-			updatedArray[lastWordIndex].team = team
-			if (team === currentTeam) {
-				setScore(prevScore => prevScore + 1)
-			} else {
-				updateScore(team, 1)
-			}
-
-			return updatedArray
-		})
-		setModalVisible(false)
-	}
-
-	const renderWordItem = ({ item, index }) => {
-		// Проверяем, является ли это последнее слово и его статус равен false
-		const isLastWord = index === wordStatusArray.length - 1
-		const toggleWordStatus = index => {
-			if (isLastWord) {
-				setWordStatusArray(prevArray => {
-					const updatedArray = [...prevArray]
-					const currentStatus = updatedArray[index].status
-					const lastWordIndex = updatedArray.length - 1
-					if (updatedArray[lastWordIndex].team === currentTeam) {
-						updatedArray[lastWordIndex].team = undefined
-						setScore(prevScore => prevScore - 1)
-					} else if (updatedArray[lastWordIndex].team) {
-						updateScore(updatedArray[lastWordIndex].team, -1)
-						updatedArray[lastWordIndex].team = undefined
-					}
-					updatedArray[index].status = !currentStatus
-					console.log(updatedArray)
-					return updatedArray
-				})
-				{
-					wordStatusArray[index].status && openModal()
-				}
-			} else {
-				setWordStatusArray(prevArray => {
-					const updatedArray = [...prevArray]
-					const currentStatus = updatedArray[index].status
-					updatedArray[index].status = !currentStatus
-					return updatedArray
-				})
-
-				// Пересчитываем очки
-				setScore(prevScore => {
-					const currentStatus = wordStatusArray[index].status
-					console.log(currentStatus)
-					return currentStatus ? prevScore + 2 : prevScore - 2
-				})
-			}
-		}
-
-		return (
-			<WContainer>
-				<WordContainer>
-					{/* Если это последнее слово и оно не отгадано, то отображаем "Общее" или команду */}
-					<WordText>
-						{isLastWord && item.team
-							? `${item.word} (${item.team})`
-							: `${item.word}`}
-					</WordText>
-					<View style={{ flexDirection: 'row' }}>
-						{/* При нажатии на кнопку иконка меняется только для конкретного элемента */}
-						<IconButton onPress={() => toggleWordStatus(index)}>
-							{item.status ? (
-								<ThumbsUpIcon />
-							) : (
-								<ThumbsDownIcon />
-							)}
-						</IconButton>
-					</View>
-				</WordContainer>
-			</WContainer>
-		)
-	}
-
-	return (
-		<Container>
-			{/* Счетчик очков */}
-			<ScoreContainer>
-				<ScoreText>Набрано очков: {score}</ScoreText>
-			</ScoreContainer>
-
-			{/* Список слов */}
-			<FlatList
-				data={wordStatusArray}
-				keyExtractor={(item, index) => index.toString()}
-				renderItem={renderWordItem}
-				style={{ marginTop: 30 }}
-			/>
-
-			{/* Кнопка продолжить */}
-			<ContinueButton onPress={handleContinue}>
-				<ContinueButtonText>Продолжить</ContinueButtonText>
-			</ContinueButton>
-
-			{/* Модальное окно для выбора команды */}
-			<SelectTeamModal
-				visible={isModalVisible}
-				selectedTeams={selectedTeams}
-				handleTeamSelect={handleTeamSelect}
-			/>
-		</Container>
-	)
-}
-
-export default RoundResultsScreen

@@ -7,6 +7,7 @@ import GameSettingsScreen from '../screens/SettingsGameScreen'
 import StartGameScreen from '../screens/StartGameScreen'
 import GameScreen from '../screens/GameScreen/GameScreen'
 import RoundResultsScreen from '../screens/RoundResultsScreen'
+import VictoryScreen from '../screens/VictoryScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -16,7 +17,7 @@ const StackNavigator = () => {
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
-				options={{ title: 'Bible allias', headerShown: false }}
+				options={{ title: 'Bible alias', headerShown: false }}
 			/>
 			<Stack.Screen
 				name="InitGame"
@@ -48,12 +49,17 @@ const StackNavigator = () => {
 				options={{
 					title: 'Старт игры',
 					headerShown: false,
+					gestureEnabled: false,
 				}}
 			/>
 			<Stack.Screen
 				name="GameScreen"
 				component={GameScreen}
-				options={{ title: 'Игровой процесс', headerShown: false }}
+				options={{
+					title: 'Игровой процесс',
+					headerShown: false,
+					gestureEnabled: false,
+				}}
 			/>
 			<Stack.Screen
 				name="Rules"
@@ -77,7 +83,23 @@ const StackNavigator = () => {
 						backgroundColor: 'rgb(11, 11, 11)',
 					},
 					headerTintColor: '#fff',
+					gestureEnabled: false,
 					headerShadowVisible: true,
+					headerLeft: () => null,
+				}}
+			/>
+			<Stack.Screen
+				name="VictoryScreen"
+				component={VictoryScreen}
+				options={{
+					title: 'ПОБЕДА!',
+					headerShown: false,
+					headerStyle: {
+						backgroundColor: 'rgb(11, 11, 11)',
+					},
+					headerTintColor: '#fff',
+					headerShadowVisible: true,
+					gestureEnabled: false,
 					headerLeft: () => null,
 				}}
 			/>

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { Platform } from 'react-native'
 
 const Logo = styled.View`
 	border: 3px solid #00ffd2;
@@ -12,6 +13,23 @@ const Logo = styled.View`
 	width: 160px;
 	height: 160px;
 	align-self: center;
+	align-items: center;
+	${Platform.OS === 'ios' && `justify-content: center;`}
+`
+const Logo2 = styled.Image`
+	/* border: 3px solid #00ffd2; */
+	/* background-color: #000; */
+	/* border-radius: 80px; */
+	margin-top: 50px;
+	margin-bottom: 20px;
+	padding: 0 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 260px;
+	height: 260px;
+	align-self: center;
+	align-items: center;
+	${Platform.OS === 'ios' && `justify-content: center;`}
 `
 
 const LogoText = styled.Text`
@@ -25,12 +43,19 @@ const LogoText = styled.Text`
 	transform: translateY(20px);
 `
 
-const AlliasLogo = () => {
+// const AliasLogo = () => {
+// 	return (
+// 		<Logo>
+// 			<LogoText>Bible alias</LogoText>
+// 		</Logo>
+// 	)
+// }
+const AliasLogo = () => {
 	return (
-		<Logo>
-			<LogoText>Bible allias</LogoText>
-		</Logo>
+		<Logo2 source={require('../../../assets/prev.png')}>
+			{/* <LogoText>Bible alias</LogoText> */}
+		</Logo2>
 	)
 }
 
-export default AlliasLogo
+export default AliasLogo

@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import AlliasLogo from '../components/ui/AlliasLogo'
+import AliasLogo from '../components/ui/AlliasLogo'
 import { Text } from 'react-native'
 import App from './../App'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const Container = styled.View`
-	background-color: #282828;
+	background-color: #121212;
 `
 
 const Buttons = styled.View`
@@ -35,9 +36,9 @@ const ButtonText = styled(Text)`
 `
 
 const BG = styled.View`
-	padding-top: 40px;
-	padding-bottom: 80px;
-	background-color: rgb(11, 11, 11);
+	/* padding-top: 40px; */
+	padding-bottom: 40px;
+	background-color: #39e8c8;
 	/* border-radius: 0 0 117px 117px; */
 	border-bottom-right-radius: 117px;
 	border-bottom-left-radius: 117px;
@@ -46,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
 	return (
 		<Container style={{ flex: 1, justifyContent: 'space-between' }}>
 			<BG>
-				<AlliasLogo />
+				<AliasLogo />
 			</BG>
 			<Buttons>
 				<Button onPress={() => navigation.navigate('InitGame')}>
@@ -60,5 +61,8 @@ const HomeScreen = ({ navigation }) => {
 	)
 }
 
-export default HomeScreen
-// onPress={() => navigation.navigate('Init Game')}
+export default SafeAreaWrapper(React.memo(HomeScreen), {
+	statusBarStyle: 'light-content',
+	statusBarHidden: false,
+	backgroundColor: '#080808',
+})

@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StatusBar } from 'react-native'
 import styled from 'styled-components/native'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const Container = styled.View`
 	background-color: #282828;
@@ -55,7 +56,7 @@ const RulesScreen = () => {
 		<View style={{ backgroundColor: '#282828', flex: 1 }}>
 			<Container>
 				<StatusBar barStyle="light-content" />
-				<Title>Bible allias</Title>
+				<Title>Bible alias</Title>
 				<Description>
 					Увлекательная командная игра для духовной компании
 				</Description>
@@ -101,4 +102,8 @@ const RulesScreen = () => {
 	)
 }
 
-export default RulesScreen
+export default SafeAreaWrapper(React.memo(RulesScreen), {
+	statusBarStyle: 'light-content',
+	statusBarHidden: false,
+	backgroundColor: '#080808',
+})

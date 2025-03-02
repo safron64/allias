@@ -6,6 +6,7 @@ import useTeamStore from '../store/TeamStore'
 import useSettingsStore from '../store/SettingsStore'
 import useScoreStore from '../store/useScoreStore'
 import { BackHandler } from 'react-native'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const Container = styled.View`
 	flex: 1;
@@ -14,7 +15,7 @@ const Container = styled.View`
 `
 
 const Header = styled.View`
-	background-color: #00ffd9a8;
+	background-color: #00ffd2;
 	padding: 10px 30px;
 	padding-top: 40px;
 	border-bottom-left-radius: 20px;
@@ -29,12 +30,12 @@ const TeamRow = styled.View`
 `
 
 const TeamText = styled.Text`
-	color: white;
+	color: #554f4f;
 	font-size: 18px;
 `
 
 const ScoreText = styled.Text`
-	color: white;
+	color: #554f4f;
 	font-size: 18px;
 	font-weight: 500;
 `
@@ -146,4 +147,8 @@ const StartGameScreen = ({ navigation }) => {
 	)
 }
 
-export default React.memo(StartGameScreen)
+export default SafeAreaWrapper(React.memo(StartGameScreen), {
+	statusBarStyle: 'dark-content',
+	statusBarHidden: false,
+	backgroundColor: '#00ffd2',
+})

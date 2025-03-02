@@ -1,376 +1,369 @@
 export const data = [
-	{ name: 'Давид', info: '', rate: '1' },
-	{ name: 'Откровение', info: '', rate: '1' },
-	{ name: 'Судьи', info: '', rate: '1' },
-	{ name: 'Моисей', info: '', rate: '1' },
-	{ name: 'Эдемский сад', info: '', rate: '1' },
-	{ name: 'Меч', info: '', rate: '1' },
-	{ name: 'Ангел', info: '', rate: '1' },
-	{ name: 'Ковчег', info: '', rate: '1' },
-	{ name: 'Содом', info: '', rate: '1' },
-	{ name: 'Израиль', info: '', rate: '1' },
-	{ name: 'Фараон', info: '', rate: '1' },
-	{ name: 'Иосиф', info: '', rate: '1' },
-	{ name: 'Библия', info: '', rate: '1' },
-	{ name: 'Служение', info: '', rate: '1' },
-	{ name: 'Армагеддон', info: '', rate: '1' },
-	{ name: 'Новый мир', info: '', rate: '1' },
-	{ name: 'Иисус', info: '', rate: '1' },
-	{ name: 'Журнал', info: '', rate: '1' },
-	{ name: 'Павел', info: '', rate: '1' },
-	{ name: 'Святой дух', info: '', rate: '1' },
-	{ name: 'Каин', info: '', rate: '1' },
-	{ name: 'Авраам', info: '', rate: '1' },
-	{ name: 'Бытие', info: '', rate: '1' },
-	{ name: 'Кувшин', info: '', rate: '1' },
-	{ name: 'Овца', info: '', rate: '1' },
-	{ name: 'Пустыня', info: '', rate: '1' },
-	{ name: 'Пророк', info: '', rate: '1' },
-	{ name: 'Храм', info: '', rate: '1' },
-	{ name: 'Крещение', info: '', rate: '1' },
-	{ name: 'Самсон', info: '', rate: '1' },
-	{ name: 'Манна', info: '', rate: '1' },
-	{ name: 'Иона', info: '', rate: '1' },
-	{ name: 'Адам', info: '', rate: '1' },
-	{ name: 'Ева', info: '', rate: '1' },
-	{ name: 'Запретный плод', info: '', rate: '1' },
-	{ name: 'Ной', info: '', rate: '1' },
-	{ name: 'Соломон', info: '', rate: '1' },
-	{ name: 'Священник', info: '', rate: '1' },
-	{ name: 'Потоп', info: '', rate: '1' },
-	{ name: 'Любовь', info: '', rate: '1' },
-	{ name: 'Голиаф', info: '', rate: '1' },
-	{ name: 'Саул', info: '', rate: '1' },
-	{ name: 'Конгресс', info: '', rate: '1' },
-	{ name: 'Создатель', info: '', rate: '1' },
-	{ name: 'Псалмопевец', info: '', rate: '2' },
-	{ name: 'Римляне', info: '', rate: '1' },
-	{ name: 'Вавилон', info: '', rate: '1' },
-	{ name: 'Пионер', info: '', rate: '1' },
-	{ name: 'Старейшина', info: '', rate: '1' },
-	{ name: 'Помазанник', info: '', rate: '1' },
-	{ name: 'Ваал', info: '', rate: '1' },
-	{ name: 'Вирсавия', info: '', rate: '1' },
-	{ name: 'Сатана', info: '', rate: '1' },
-	{ name: 'Серафим', info: '', rate: '2' },
-	{ name: 'Левиты', info: '', rate: '2' },
-	{ name: 'Раав', info: '', rate: '2' },
-	{ name: 'Жертвенник', info: '', rate: '2' },
-	{ name: 'Притча', info: '', rate: '2' },
-	{ name: 'Город-убежище', info: '', rate: '2' },
-	{ name: 'Ниневия', info: '', rate: '2' },
-	{ name: 'Лот', info: '', rate: '2' },
-	{ name: 'Руфь', info: '', rate: '2' },
-	{ name: 'Эсфирь', info: '', rate: '2' },
-	{ name: 'Иоанн', info: '', rate: '2' },
-	{ name: 'Михаил', info: '', rate: '2' },
-	{ name: 'Мегиддо', info: '', rate: '3' },
-	{ name: 'Зевс', info: '', rate: '2' },
-	{ name: 'Тимофей', info: '', rate: '2' },
-	{ name: 'Тарс', info: '', rate: '2' },
-	{ name: 'Навал', info: '', rate: '2' },
-	{ name: 'Навуходоносор', info: '', rate: '2' },
-	{ name: 'Аведнего', info: '', rate: '2' },
-	{ name: 'Евнух', info: '', rate: '2' },
-	{ name: 'Миссионер', info: '', rate: '2' },
-	{ name: 'Галаад', info: '', rate: '2' },
-	{ name: 'Вефиль', info: '', rate: '2' },
-	{ name: 'Школа благовестников царства', info: '', rate: '2' },
-	{ name: 'Теократия', info: '', rate: '2' },
-	{ name: 'Коринф', info: '', rate: '2' },
-	{ name: 'Афины', info: '', rate: '2' },
-	{ name: 'Иордан', info: '', rate: '2' },
-	{ name: 'Синедрион', info: '', rate: '2' },
-	{ name: 'Фарисей', info: '', rate: '2' },
-	{ name: 'Назарей', info: '', rate: '2' },
-	{ name: 'Десятина', info: '', rate: '2' },
-	{ name: 'Десятиградие', info: '', rate: '2' },
-	{ name: 'Иерусалим', info: '', rate: '2' },
-	{ name: 'Жребий', info: '', rate: '1' },
-	{ name: 'Ефод', info: '', rate: '3' },
-	{ name: 'Ефа', info: '', rate: '3' },
-	{ name: 'Динарий', info: '', rate: '2' },
-	{ name: 'Исайя', info: '', rate: '2' },
-	{ name: 'Херувим', info: '', rate: '2' },
-	{ name: 'Легион', info: '', rate: '2' },
-	{ name: 'Центурион', info: '', rate: '2' },
-	{ name: 'Пилат', info: '', rate: '2' },
-	{ name: 'Ур', info: '', rate: '2' },
-	{ name: 'Иерихон', info: '', rate: '2' },
-	{ name: 'Авессалом', info: '', rate: '2' },
-	{ name: 'Мафусал', info: '', rate: '3' },
-	{ name: 'Гог из Магога', info: '', rate: '2' },
+	{ name: 'Давид', rate: '1' },
+	{ name: 'Откровение', rate: '1' },
+	{ name: 'Судьи', rate: '1' },
+	{ name: 'Моисей', rate: '1' },
+	{ name: 'Эдемский сад', rate: '1' },
+	{ name: 'Меч', rate: '1' },
+	{ name: 'Ангел', rate: '1' },
+	{ name: 'Ковчег', rate: '1' },
+	{ name: 'Содом', rate: '1' },
+	{ name: 'Израиль', rate: '1' },
+	{ name: 'Фараон', rate: '1' },
+	{ name: 'Иосиф', rate: '1' },
+	{ name: 'Библия', rate: '1' },
+	{ name: 'Служение', rate: '1' },
+	{ name: 'Армагеддон', rate: '1' },
+	{ name: 'Новый мир', rate: '1' },
+	{ name: 'Иисус', rate: '1' },
+	{ name: 'Журнал', rate: '1' },
+	{ name: 'Павел', rate: '1' },
+	{ name: 'Святой дух', rate: '1' },
+	{ name: 'Каин', rate: '1' },
+	{ name: 'Авраам', rate: '1' },
+	{ name: 'Бытие', rate: '1' },
+	{ name: 'Кувшин', rate: '1' },
+	{ name: 'Овца', rate: '1' },
+	{ name: 'Пустыня', rate: '1' },
+	{ name: 'Пророк', rate: '1' },
+	{ name: 'Храм', rate: '1' },
+	{ name: 'Крещение', rate: '1' },
+	{ name: 'Самсон', rate: '1' },
+	{ name: 'Манна', rate: '1' },
+	{ name: 'Иона', rate: '1' },
+	{ name: 'Адам', rate: '1' },
+	{ name: 'Ева', rate: '1' },
+	{ name: 'Запретный плод', rate: '1' },
+	{ name: 'Ной', rate: '1' },
+	{ name: 'Соломон', rate: '1' },
+	{ name: 'Священник', rate: '1' },
+	{ name: 'Потоп', rate: '1' },
+	{ name: 'Любовь', rate: '1' },
+	{ name: 'Голиаф', rate: '1' },
+	{ name: 'Саул', rate: '1' },
+	{ name: 'Конгресс', rate: '1' },
+	{ name: 'Создатель', rate: '1' },
+	{ name: 'Псалмопевец', rate: '2' },
+	{ name: 'Римляне', rate: '1' },
+	{ name: 'Вавилон', rate: '1' },
+	{ name: 'Пионер', rate: '1' },
+	{ name: 'Старейшина', rate: '1' },
+	{ name: 'Помазанник', rate: '1' },
+	{ name: 'Ваал', rate: '1' },
+	{ name: 'Вирсавия', rate: '1' },
+	{ name: 'Сатана', rate: '1' },
+	{ name: 'Серафим', rate: '2' },
+	{ name: 'Левиты', rate: '2' },
+	{ name: 'Раав', rate: '2' },
+	{ name: 'Жертвенник', rate: '2' },
+	{ name: 'Притча', rate: '2' },
+	{ name: 'Город-убежище', rate: '2' },
+	{ name: 'Ниневия', rate: '2' },
+	{ name: 'Лот', rate: '2' },
+	{ name: 'Руфь', rate: '2' },
+	{ name: 'Эсфирь', rate: '2' },
+	{ name: 'Иоанн', rate: '2' },
+	{ name: 'Михаил', rate: '2' },
+	{ name: 'Мегиддо', rate: '3' },
+	{ name: 'Зевс', rate: '2' },
+	{ name: 'Тимофей', rate: '2' },
+	{ name: 'Тарс', rate: '2' },
+	{ name: 'Навал', rate: '2' },
+	{ name: 'Навуходоносор', rate: '2' },
+	{ name: 'Аведнего', rate: '2' },
+	{ name: 'Евнух', rate: '2' },
+	{ name: 'Миссионер', rate: '2' },
+	{ name: 'Галаад', rate: '2' },
+	{ name: 'Вефиль', rate: '2' },
+	{ name: 'Школа благовестников царства', rate: '2' },
+	{ name: 'Теократия', rate: '2' },
+	{ name: 'Коринф', rate: '2' },
+	{ name: 'Афины', rate: '2' },
+	{ name: 'Иордан', rate: '2' },
+	{ name: 'Синедрион', rate: '2' },
+	{ name: 'Фарисей', rate: '2' },
+	{ name: 'Назарей', rate: '2' },
+	{ name: 'Десятина', rate: '2' },
+	{ name: 'Десятиградие', rate: '2' },
+	{ name: 'Иерусалим', rate: '2' },
+	{ name: 'Жребий', rate: '1' },
+	{ name: 'Ефод', rate: '3' },
+	{ name: 'Ефа', rate: '3' },
+	{ name: 'Динарий', rate: '2' },
+	{ name: 'Исайя', rate: '2' },
+	{ name: 'Херувим', rate: '2' },
+	{ name: 'Легион', rate: '2' },
+	{ name: 'Центурион', rate: '2' },
+	{ name: 'Пилат', rate: '2' },
+	{ name: 'Ур', rate: '2' },
+	{ name: 'Иерихон', rate: '2' },
+	{ name: 'Авессалом', rate: '2' },
+	{ name: 'Мафусал', rate: '3' },
+	{ name: 'Гог из Магога', rate: '2' },
 	{
 		name: 'Идол',
-		info: '',
 		rate: '1',
 	},
 	{
 		name: 'Видение',
-		info: '',
 		rate: '1',
 	},
 	{
 		name: 'Посох',
-		info: '',
 		rate: '1',
 	},
 	{
 		name: 'Первосвященник',
-		info: '',
 		rate: '2',
 	},
 	{
 		name: 'Аарон',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Далида',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Праща',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Калека',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Прокаженный',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Пядь',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Кротость',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Мужество',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Мятеж',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Накидка',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Смирение',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Первенец',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Ревекка',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Медное море',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Фимиам',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Азазел',
-		info: '',
+
 		rate: '3',
 	},
 
 	{
 		name: 'Темница',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Колодки',
-		info: '',
 
 		rate: '2',
 	},
 	{
 		name: 'Вино',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Пщеница',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жемчужина',
 
-		info: '',
 		rate: '1',
 	},
 	{
 		name: 'Пришелец',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Скрижали',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Помёт',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Аваддон',
-		info: '',
+
 		rate: '3',
 	},
 
 	{
 		name: 'Коалиция',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Ягненок',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Тетраграмматон',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Яхве',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Саранча',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Родословная',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Аввакум',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Летопись',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Чичивица',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Инжир',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Аметист',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Фарсис',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Уборная',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Саддукей',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Масорет',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Соферимы',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Виноград',
-		info: '',
 
 		rate: '1',
 	},
 	{
 		name: 'Завет',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Обет',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Топаз',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Кораллы',
-		info: '',
+
 		rate: '1',
 	},
 
 	{
 		name: 'Лагерь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Лепешка',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Выкуп',
-		info: '',
+
 		rate: '1',
 	},
 	{
@@ -387,63 +380,63 @@ export const data = [
 
 	{
 		name: 'Господин',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Гончар',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Скороход',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Плакальщица',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Склеп',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Елисей',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Наследник',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Книжник',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Анна',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Самуил',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Пророчица',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Ровоам',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -453,52 +446,52 @@ export const data = [
 	},
 	{
 		name: 'Рувим',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Седекия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Самария',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Гефсимания',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Иосия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Манассия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Ахав',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Иезавель',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Езекия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Кир',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -508,80 +501,79 @@ export const data = [
 	},
 	{
 		name: 'Помазание',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Демон',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Нил',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Воскресение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Душа',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жрец',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Астролог',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Broadcasting',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Ноеминь',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Магдалина',
 
-		info: '',
 		rate: '2',
 	},
 	{
 		name: 'Насмехание',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Лепта',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Геена',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Шеол',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Феофил',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -591,17 +583,17 @@ export const data = [
 	},
 	{
 		name: 'Левиафан',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Нефилим',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Енох',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -611,27 +603,27 @@ export const data = [
 	},
 	{
 		name: 'Ирод',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Колодец',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Раскаяние',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Раб',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Талант',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -646,7 +638,7 @@ export const data = [
 	},
 	{
 		name: 'Гедеон',
-		info: '',
+
 		rate: '3',
 	},
 	{
@@ -657,22 +649,22 @@ export const data = [
 
 	{
 		name: 'Понтий Пилат',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Обрезание',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Искупление',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Пленник',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -682,12 +674,12 @@ export const data = [
 	},
 	{
 		name: 'Сандалии',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Мешковина',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -697,7 +689,7 @@ export const data = [
 	},
 	{
 		name: 'Исав',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -742,7 +734,7 @@ export const data = [
 	},
 	{
 		name: 'Гадюка',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -798,7 +790,7 @@ export const data = [
 	},
 	{
 		name: 'Ионафан',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -873,7 +865,7 @@ export const data = [
 	},
 	{
 		name: 'Пятикнижие',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -903,12 +895,12 @@ export const data = [
 	},
 	{
 		name: 'Нейтралитет',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Эволюция',
-		info: '',
+
 		rate: '2',
 	},
 	{
@@ -923,1787 +915,2388 @@ export const data = [
 	},
 	{
 		name: 'Баалоф',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Багрянец',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бака',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Баклан',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бальзам',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бальзамирование',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Баран',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Басня',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бат',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Башня',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бевай',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Бегемот',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бедный',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бедро',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Беды',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Беештера',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Безбрачие',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бездна',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Беззаконие',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Безумие',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Безупречность',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'безукоризненность',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бела',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Бенони',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Беременность',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бераха',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Берилл',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Берия',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Бесплодие',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Беспокойство',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бессмертие',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бет',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Беф',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Библейские рукописи',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бирюза',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бич',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бичевание',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Благая весть',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Благовоние',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Благоговение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Благоразумие',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Благосклонность',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Благословение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Ближний',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Блоха',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Блуд',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Блудница',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Блюститель порядка',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Бобы',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Богатство',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Богини',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Богохульство',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Божественный',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Болезни',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Боль',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Большое дерево',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Борзая',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Борода',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бохим',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Брак',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Браслет',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Брат',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бремя',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бритва',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бритьё',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Брожение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бронза',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Брошь',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бубаст',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Бубен',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бул',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Бумага',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Бурдюк',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бутылочная тыква',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Бык',
-		info: '',
+
 		rate: '1',
 	},
 	// Пропущено «Давид», т.к. не было указано rate
 	{
 		name: 'Давида Город',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Давильня',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Давир',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Далида',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дамаск',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дамасцы',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дан',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дань',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дарий',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дарик',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Даркон',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дары милосердия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дары',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дверь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Дворец',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Двоюродный брат',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Девора',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Девственница',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дедушка',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Деир',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Демон',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'День Господа',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'День Иеговы',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'День искупления',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'День новолуния',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'День Приготовления',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'День рождения',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'День суда',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Деньги',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Деревня',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Десятина',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Десять заповедей',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Десять слов',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дети',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Деторождение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Деяния апостолов',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Диадема',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дидрахма',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дикий арбуз',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дикий бык',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дикий козёл',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дикий осёл',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дикобраз',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Димас',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дина',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Динарий',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Добро',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Добродетельность',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Доброта',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Добыча',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Додо',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дождь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Долг',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Долготерпение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Долина',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Долина реки',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Род',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дома души',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дорка',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дорога',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Доспехи',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дофан',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Дочь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Драгоценности',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Драгоценные камни',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Дракон',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Драхма',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Древний Днями',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дротик',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Друг',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Дубина',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дума',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дух',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Душа',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Душистые травы',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Душистый тростник',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дым',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Дыхание',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дьявол',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Дядя',
-		info: '',
+
 		rate: '2',
 	},
 
 	// --- Слова из НОВОГО списка (начиная с «Ваал 1») ---
 	{
 		name: 'Ваал',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вааса',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вавилон',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вавилон Великий',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вавилонская башня',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вал',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Валаам',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Валак',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Валтасар',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Варавва',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Варак',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Варвар',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вариисус',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Варнава',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Варух',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Варфоломей',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Васан',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Вафрий',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Вафуил',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вашти',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вдова',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вдохновение',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Веельзевул',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Великан',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Великое бедствие',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Великое множество',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Великое море',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Венадад',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Венец',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вениамин',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вениамитяне',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Венок',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вера',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Верблюд',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вереника',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Верёвка',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Верия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Верный раб',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Верхняя комната',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Веселеил',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Весло',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вестник',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Весы',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Ветвь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Ветер',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вефиль',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вечеря',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вещи',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Веяние',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вёсельное судно',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Взятка',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Видение',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вилдад',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вина',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вино',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Виноград',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Виноградник',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Виночерпий',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вирсавия',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вифиния',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вифлеем',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вифлеемлянин',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вифсаида',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Виффагия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Владычество',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Власт',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Власти',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Внутренности',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вода',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Военачальник',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вождь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воздаяние',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Возложение рук',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Возмездие',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Возмещение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вознесение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Возраст',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воин',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Война',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Войско',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воинство',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Волк',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Волосы',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Волшебник',
-		info: '',
 		rate: '1',
 	},
 	{
 		name: 'Волынка',
-		info: '',
 		rate: '2',
 	},
 	{
 		name: 'Вольноотпущенник',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вооз',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вор',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воробей',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Ворон',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Ворота',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воск',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воскресение',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воспитатель',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Воссоздание',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Восстановление',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Восток',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Восхваление',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Восход',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Восхождение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Враг',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Врач',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Время',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Всевышний',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Всемогущий',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Всесожжение',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Встреча',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Выкидыш',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Выкуп',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вымогательство',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Вырезать',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Высокомерие',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Высоты',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Высшие власти',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Вышивание',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жадеит',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Жадность',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жалость',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жаровня',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жатва',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жвачка',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жезл',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Железо',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Желудок',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жемчуг',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жена',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Женщина',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жертва',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жертвенник',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жесты',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Желчь',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жёрнов',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Живот',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Животные',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жизнь',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Жилы',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жир',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Житница',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Жнец',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Жнивьё',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Жребий',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Евеи',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Евер',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Евиасаф',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Евилмеродах',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Евника',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Еводия',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Еврей',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Еврейские Писания',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Еврейский язык',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Евреям письмо',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Евтих',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Евфрат',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Египет',
-		info: '',
+
 		rate: '1',
 	},
 	{
 		name: 'Еглон',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Единородный',
-		info: '',
+
 		rate: '2',
 	},
 
 	{
 		name: 'Екрон',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Елеазар',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Елиав',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Елиаким',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Елиезер',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Елизавета',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Елимелех',
-		info: '',
+
 		rate: '3',
 	},
 
 	{
 		name: 'Елифаз',
-		info: '',
+
 		rate: '3',
 	},
 	{
 		name: 'Елкана',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Еннома долина',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Енос',
-		info: '',
+
 		rate: '3',
 	},
 
 	{
 		name: 'Ермон',
-		info: '',
+
 		rate: '2',
 	},
 	{
 		name: 'Ефрем',
-		info: '',
+
 		rate: '3',
 	},
 
 	{
 		name: 'Ефрон',
-		info: '',
+
 		rate: '3',
 	},
 
 	{
 		name: 'Забава',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Забава/',
 		rate: '2',
 	},
 	{
 		name: 'Забота',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Забота/',
 		rate: '1',
 	},
 	{
 		name: 'Зависимые города',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зависимые-города/',
 		rate: '3',
 	},
 	{
 		name: 'Зависть',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зависть/',
 		rate: '1',
 	},
 	{
 		name: 'Завулон',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Завулон/',
 		rate: '3',
 	},
 	{
 		name: 'Завуф',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Завуф/',
 		rate: '3',
 	},
 	{
 		name: 'Загадка',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Загадка/',
 		rate: '2',
 	},
 	{
 		name: 'Загон',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Загон/',
 		rate: '2',
 	},
 	{
 		name: 'Закат',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Закат/',
 		rate: '1',
 	},
 	{
 		name: 'Закваска',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Закваска/',
 		rate: '2',
 	},
 	{
 		name: 'Заклинание',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Заклинание/',
 		rate: '1',
 	},
 	{
 		name: 'Заключение под стражу',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Заключение-под-стражу/',
 		rate: '2',
 	},
 	{
 		name: 'Закон',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Закон/',
 		rate: '1',
 	},
 	{
 		name: 'Законодатель',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Законодатель/',
 		rate: '2',
 	},
 	{
 		name: 'Закхей',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Закхей/',
 		rate: '2',
 	},
 	{
 		name: 'Залог',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Залог/',
 		rate: '2',
 	},
 	{
 		name: 'Замок',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Замок/',
 		rate: '2',
 	},
 	{
 		name: 'Запад',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Запад/',
 		rate: '1',
 	},
 	{
 		name: 'Западня',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Западня/',
 		rate: '2',
 	},
 	{
 		name: 'Засада',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Засада/',
 		rate: '2',
 	},
 	{
 		name: 'Захария',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Захария/',
 		rate: '2',
 	},
 	{
 		name: 'Заяц',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Заяц/',
 		rate: '1',
 	},
 	{
 		name: 'Звезда',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Звезда/',
 		rate: '1',
 	},
 	{
 		name: 'Зебра',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зебра/',
 		rate: '1',
 	},
 	{
 		name: 'Зеведей',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зеведей/',
 		rate: '3',
 	},
 	{
 		name: 'Зевс',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зевс/',
 		rate: '2',
 	},
 	{
 		name: 'Зелень',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зелень/',
 		rate: '2',
 	},
 	{
 		name: 'Зелфа',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Зелфа/',
 		rate: '3',
 	},
 	{
 		name: 'Землевладелец',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Землевладелец/',
 		rate: '2',
 	},
 	{
 		name: 'Земледелие',
-		info: 'https://www.pr2711.com/ru/библиотека/книги/Понимание-Писания/Земледелие/',
 		rate: '1',
 	},
+
+	{ name: 'Лаван', rate: '3' },
+	{ name: 'Лавр', rate: '3' },
+	{ name: 'Лавсония', rate: '3' },
+	{ name: 'Лагерь', rate: '1' },
+	{ name: 'Ладан', rate: '2' },
+	{ name: 'Ладонь', rate: '1' },
+	{ name: 'Лазарь', rate: '2' },
+	{ name: 'Лазутчик', rate: '3' },
+	{ name: 'Ламед', rate: '3' },
+	{ name: 'Ламех', rate: '3' },
+	{ name: 'Лань', rate: '1' },
+	{ name: 'Ласточка', rate: '1' },
+	{ name: 'Латинский язык', rate: '2' },
+	{ name: 'Лахис', rate: '3' },
+	{ name: 'Лебедь', rate: '1' },
+	{ name: 'Лев', rate: '1' },
+	{ name: 'Левиафан', rate: '2' },
+	{ name: 'Левий', rate: '3' },
+	{ name: 'Левиратный брак', rate: '2' },
+	{ name: 'Левиты', rate: '2' },
+	{ name: 'Легион', rate: '2' },
+	{ name: 'Лень', rate: '1' },
+	{ name: 'Леопард', rate: '1' },
+	{ name: 'Лепёшка', rate: '1' },
+	{ name: 'Лес', rate: '1' },
+	{ name: 'Лестница', rate: '1' },
+	{ name: 'Лесть', rate: '2' },
+	{ name: 'Летописец', rate: '2' },
+	{ name: 'Летописи', rate: '2' },
+	{ name: 'Летучая мышь', rate: '1' },
+	{ name: 'Лёд', rate: '1' },
+	{ name: 'Лён', rate: '2' },
+	{ name: 'Лжепророк', rate: '2' },
+	{ name: 'Ливан', rate: '2' },
+	{ name: 'Ливанский лес', rate: '3' },
+	{ name: 'Ливия', rate: '3' },
+	{ name: 'Лидия', rate: '2' },
+	{ name: 'Ликаония', rate: '3' },
+	{ name: 'Ликия', rate: '3' },
+	{ name: 'Лисица', rate: '1' },
+	{ name: 'Листра', rate: '2' },
+	{ name: 'Литое море (медное море)', rate: '2' },
+	{ name: 'Лицемер', rate: '2' },
+	{ name: 'Лицо', rate: '1' },
+	{ name: 'Личинка', rate: '1' },
+	{ name: 'Лия', rate: '2' },
+	{ name: 'Лоб', rate: '1' },
+	{ name: 'Ловушка', rate: '1' },
+	{ name: 'Лог', rate: '3' },
+	{ name: 'Ложе', rate: '2' },
+	{ name: 'Ложь', rate: '1' },
+	{ name: 'Лоида', rate: '2' },
+	{ name: 'Локоть', rate: '1' },
+	{ name: 'Лот', rate: '2' },
+	{ name: 'Лотосовое дерево', rate: '3' },
+	{ name: 'Лошадь', rate: '1' },
+	{ name: 'Лук', rate: '1' },
+	{ name: 'Лука', rate: '1' },
+	{ name: 'Луки', rate: '1' },
+	{ name: 'Луна', rate: '1' },
+	{ name: 'Лучник', rate: '1' },
+	{ name: 'Лысина', rate: '2' },
+	{ name: 'Лягушка', rate: '1' },
+	{ name: 'Кадильница', rate: '2' },
+	{ name: 'Казнь', rate: '1' },
+	{ name: 'Каиафа', rate: '3' },
+	{ name: 'Каин', rate: '1' },
+	{ name: 'Календарь', rate: '1' },
+	{ name: 'Каменная крошка', rate: '2' },
+	{ name: 'Каменотёс', rate: '2' },
+	{ name: 'Каменщик', rate: '2' },
+	{ name: 'Камень', rate: '1' },
+	{ name: 'Камыш', rate: '1' },
+	{ name: 'Кандакия', rate: '3' },
+	{ name: 'Кандалы', rate: '2' },
+	{ name: 'Капернаум', rate: '3' },
+	{ name: 'Капитель', rate: '3' },
+	{ name: 'Каркас', rate: '2' },
+	{ name: 'Кармил', rate: '3' },
+	{ name: 'Карп', rate: '1' },
+	{ name: 'Карьер', rate: '1' },
+	{ name: 'Кассия', rate: '3' },
+	{ name: 'Квашня', rate: '2' },
+	{ name: 'Кедр', rate: '1' },
+	{ name: 'Кедрон', rate: '3' },
+	{ name: 'Кенхреи', rate: '3' },
+	{ name: 'Керенгаппух', rate: '2' },
+	{ name: 'Кесария', rate: '3' },
+	{ name: 'Кесарь', rate: '2' },
+	{ name: 'Кесиль', rate: '3' },
+	{ name: 'Киликия', rate: '3' },
+	{ name: 'Кимвал', rate: '3' },
+	{ name: 'Кинжал', rate: '1' },
+	{ name: 'Кинжальщики', rate: '2' },
+	{ name: 'Кипарис', rate: '2' },
+	{ name: 'Кипр', rate: '2' },
+	{ name: 'Кир', rate: '2' },
+	{ name: 'Кирена', rate: '3' },
+	{ name: 'Кирпич', rate: '1' },
+	{ name: 'Кислев', rate: '2' },
+	{ name: 'Кифа', rate: '2' },
+	{ name: 'Кишки', rate: '1' },
+	{ name: 'Клавдий', rate: '2' },
+	{ name: 'Клавдия', rate: '2' },
+	{ name: 'Клевета', rate: '2' },
+	{ name: 'Клеймо', rate: '2' },
+	{ name: 'Клетка', rate: '1' },
+	{ name: 'Клопас', rate: '3' },
+	{ name: 'Ключ', rate: '1' },
+	{ name: 'Клятва', rate: '1' },
+	{ name: 'Книга', rate: '1' },
+	{ name: 'Книжник', rate: '1' },
+	{ name: 'Кнут', rate: '1' },
+	{ name: 'Князь', rate: '1' },
+	{ name: 'Кобра', rate: '1' },
+	{ name: 'Ковчег', rate: '1' },
+	{ name: 'Ковчег соглашения', rate: '2' },
+	{ name: 'Кодекс', rate: '2' },
+	{ name: 'Кожа', rate: '1' },
+	{ name: 'Кожевник', rate: '2' },
+	{ name: 'Козёл', rate: '1' },
+	{ name: 'Козлёнок', rate: '1' },
+	{ name: 'Козодой', rate: '2' },
+	{ name: 'Колдун', rate: '1' },
+	{ name: 'Колено', rate: '1' },
+	{ name: 'Колесница', rate: '1' },
+	{ name: 'Колесо', rate: '1' },
+	{ name: 'Колодец', rate: '1' },
+	{ name: 'Колодки', rate: '2' },
+	{ name: 'Колокольчик', rate: '1' },
+	{ name: 'Колонна', rate: '1' },
+	{ name: 'Колоннада', rate: '2' },
+	{ name: 'Колоссы', rate: '2' },
+	{ name: 'Колчан', rate: '2' },
+	{ name: 'Кольцо', rate: '1' },
+	{ name: 'Кольчуга', rate: '1' },
+	{ name: 'Комар', rate: '1' },
+	{ name: 'Конь', rate: '1' },
+	{ name: 'Копьеносец', rate: '2' },
+	{ name: 'Копьё', rate: '1' },
+	{ name: 'Кор', rate: '2' },
+	{ name: 'Корабль', rate: '1' },
+	{ name: 'Коралл', rate: '1' },
+	{ name: 'Корван', rate: '2' },
+	{ name: 'Корей', rate: '2' },
+	{ name: 'Корзина', rate: '1' },
+	{ name: 'Кориандр', rate: '2' },
+	{ name: 'Коринф', rate: '2' },
+	{ name: 'Корица', rate: '2' },
+	{ name: 'Кормилица', rate: '2' },
+	{ name: 'Кормушка', rate: '1' },
+	{ name: 'Корнилий', rate: '2' },
+	{ name: 'Корова', rate: '1' },
+	{ name: 'Коршун', rate: '1' },
+	{ name: 'Косметика', rate: '1' },
+	{ name: 'Костный мозг', rate: '2' },
+	{ name: 'Кость', rate: '1' },
+	{ name: 'Косуля', rate: '2' },
+	{ name: 'Котёл', rate: '1' },
+	{ name: 'Кошелёк', rate: '1' },
+	{ name: 'Краеугольный камень', rate: '2' },
+	{ name: 'Крайняя плоть', rate: '2' },
+	{ name: 'Крапива', rate: '1' },
+	{ name: 'Краски', rate: '1' },
+	{ name: 'Красное дерево', rate: '1' },
+	{ name: 'Красное море', rate: '1' },
+	{ name: 'Кремень', rate: '2' },
+	{ name: 'Крепость', rate: '1' },
+	{ name: 'Крест', rate: '1' },
+	{ name: 'Крещение', rate: '1' },
+	{ name: 'Крисп', rate: '3' },
+	{ name: 'Крит', rate: '2' },
+	{ name: 'Кровосмешение', rate: '2' },
+	{ name: 'Кровь', rate: '1' },
+	{ name: 'Крокодил', rate: '1' },
+	{ name: 'Крот', rate: '1' },
+	{ name: 'Кротость', rate: '1' },
+	{ name: 'Крюк', rate: '1' },
+	{ name: 'Кувшин', rate: '1' },
+	{ name: 'Кузнечик', rate: '1' },
+	{ name: 'Кукушка', rate: '1' },
+	{ name: 'Купец', rate: '2' },
+	{ name: 'Куропатка', rate: '1' },
+	{ name: 'Кутёж', rate: '3' },
+	{ name: 'Куш', rate: '3' },
+
+	{ name: 'Иаг', rate: '1' },
+	{ name: 'Иаиль', rate: '1' },
+	{ name: 'Иаков', rate: '1' },
+	{ name: 'Иаир', rate: '1' },
+	{ name: 'Ива', rate: '1' },
+	{ name: 'Игла', rate: '1' },
+	{ name: 'Игольное ушко', rate: '1' },
+	{ name: 'Игры', rate: '1' },
+	{ name: 'Идол', rate: '1' },
+	{ name: 'Идолопоклонство', rate: '2' },
+	{ name: 'Иегова', rate: '1' },
+	{ name: 'Иезавель', rate: '1' },
+	{ name: 'Иезекииль', rate: '1' },
+	{ name: 'Иеремия', rate: '1' },
+	{ name: 'Иерихон', rate: '1' },
+	{ name: 'Иероваал', rate: '2' },
+	{ name: 'Иеровоам', rate: '2' },
+	{ name: 'Иерусалим', rate: '1' },
+	{ name: 'Иессей', rate: '1' },
+	{ name: 'Известняк', rate: '2' },
+	{ name: 'Известь', rate: '2' },
+	{ name: 'Изгнание', rate: '1' },
+	{ name: 'Исключение', rate: '1' },
+	{ name: 'Изгородь', rate: '2' },
+	{ name: 'Изготовитель палаток', rate: '1' },
+	{ name: 'Изнасилование', rate: '1' },
+	{ name: 'Изображение', rate: '1' },
+	{ name: 'Изолирование', rate: '1' },
+	{ name: 'Израиль', rate: '1' },
+	{ name: 'Израильтянин', rate: '1' },
+	{ name: 'Изумруд', rate: '1' },
+	{ name: 'Изъян', rate: '1' },
+	{ name: 'Иисус', rate: '1' },
+	{ name: 'Иисус Навин', rate: '1' },
+	{ name: 'Иконий', rate: '2' },
+	{ name: 'Илий', rate: '2' },
+	{ name: 'Илья', rate: '1' },
+	{ name: 'Индия', rate: '1' },
+	{ name: 'Иней', rate: '1' },
+	{ name: 'Инжир', rate: '1' },
+	{ name: 'Инструмент', rate: '1' },
+	{ name: 'Иоанн', rate: '1' },
+	{ name: 'Иов', rate: '1' },
+	{ name: 'Иоиль', rate: '2' },
+	{ name: 'Иона', rate: '1' },
+	{ name: 'Ионафан', rate: '1' },
+	{ name: 'Иоппия', rate: '2' },
+	{ name: 'Иордан', rate: '1' },
+	{ name: 'Иосиф', rate: '1' },
+	{ name: 'Иофор', rate: '2' },
+	{ name: 'Иохаведа', rate: '2' },
+	{ name: 'Ирод', rate: '1' },
+	{ name: 'Иродиада', rate: '3' },
+	{ name: 'Исаак', rate: '1' },
+	{ name: 'Исав', rate: '1' },
+	{ name: 'Исаия', rate: '1' },
+	{ name: 'Искариот', rate: '1' },
+	{ name: 'Исключительная преданность', rate: '2' },
+	{ name: 'Искусство', rate: '1' },
+	{ name: 'Испания', rate: '1' },
+	{ name: 'Исправление', rate: '1' },
+	{ name: 'Истечение', rate: '2' },
+	{ name: 'Истина', rate: '1' },
+	{ name: 'Истолкование', rate: '2' },
+	{ name: 'Истребление', rate: '1' },
+	{ name: 'Исход', rate: '1' },
+	{ name: 'Исцеление', rate: '1' },
+	{ name: 'Италия', rate: '1' },
+	{ name: 'Иуда', rate: '1' },
+	{ name: 'Иудей', rate: '1' },
+	{ name: 'Обвинение', rate: '1' },
+	{ name: 'Обезглавливание', rate: '1' },
+	{ name: 'Обезьяна', rate: '1' },
+	{ name: 'Обет', rate: '2' },
+	{ name: 'Обжора', rate: '1' },
+	{ name: 'Облако', rate: '1' },
+	{ name: 'Область', rate: '1' },
+	{ name: 'Обличение', rate: '2' },
+	{ name: 'Обман', rate: '1' },
+	{ name: 'Обоз', rate: '2' },
+	{ name: 'Образ', rate: '2' },
+	{ name: 'Обращение', rate: '2' },
+	{ name: 'Обрезание', rate: '2' },
+	{ name: 'Обручение', rate: '2' },
+	{ name: 'Обучение', rate: '1' },
+	{ name: 'Общение', rate: '1' },
+	{ name: 'Овал', rate: '1' },
+	{ name: 'Овид', rate: '2' },
+	{ name: 'Овод', rate: '2' },
+	{ name: 'Овца', rate: '1' },
+	{ name: 'Огненное озеро', rate: '1' },
+	{ name: 'Огонь', rate: '1' },
+	{ name: 'Огурец', rate: '1' },
+	{ name: 'Одежда', rate: '1' },
+	{ name: 'Одержимость', rate: '2' },
+	{ name: 'Ожерелье', rate: '1' },
+	{ name: 'Озия', rate: '3' },
+	{ name: 'Окно', rate: '1' },
+	{ name: 'Оковы', rate: '1' },
+	{ name: 'Олень', rate: '1' },
+	{ name: 'Олово', rate: '1' },
+	{ name: 'Омега', rate: '2' },
+	{ name: 'Онан', rate: '3' },
+	{ name: 'Оникс', rate: '2' },
+	{ name: 'Онисим', rate: '3' },
+	{ name: 'Онисифор', rate: '3' },
+	{ name: 'Оправдание', rate: '2' },
+	{ name: 'Опьянение', rate: '1' },
+	{ name: 'Орех', rate: '1' },
+	{ name: 'Орёл', rate: '1' },
+	{ name: 'Оруженосец', rate: '1' },
+	{ name: 'Оружие', rate: '1' },
+	{ name: 'Орфа', rate: '3' },
+	{ name: 'Осадок', rate: '1' },
+	{ name: 'Освящение', rate: '1' },
+	{ name: 'Осёл', rate: '1' },
+	{ name: 'Осия', rate: '2' },
+	{ name: 'Основание', rate: '1' },
+	{ name: 'Остаток', rate: '1' },
+	{ name: 'Остров', rate: '1' },
+	{ name: 'Осуждение', rate: '1' },
+	{ name: 'Отвес', rate: '2' },
+	{ name: 'Отец', rate: '1' },
+	{ name: 'Откровение', rate: '1' },
+	{ name: 'Отросток', rate: '2' },
+	{ name: 'Отступничество', rate: '2' },
+	{ name: 'Офир', rate: '3' },
+	{ name: 'Офни', rate: '2' },
+	{ name: 'Охозия', rate: '2' },
+	{ name: 'Охота', rate: '1' },
+	{ name: 'Очищение', rate: '1' },
+
+	{ name: 'Павел', rate: '1' },
+	{ name: 'Павлин', rate: '1' },
+	{ name: 'Пазуха', rate: '3' },
+	{ name: 'Пакля', rate: '3' },
+	{ name: 'Паланкин', rate: '3' },
+	{ name: 'Палестина', rate: '2' },
+	{ name: 'Пальма', rate: '1' },
+	{ name: 'Памятник', rate: '1' },
+	{ name: 'Памятный склеп', rate: '2' },
+	{ name: 'Папирус', rate: '2' },
+	{ name: 'Пар', rate: '1' },
+	{ name: 'Паралич', rate: '2' },
+	{ name: 'Парсин', rate: '3' },
+	{ name: 'Пастбище', rate: '1' },
+	{ name: 'Пастух', rate: '1' },
+	{ name: 'Пастырь', rate: '2' },
+	{ name: 'Пастушеская сумка', rate: '2' },
+	{ name: 'Пасха', rate: '2' },
+	{ name: 'Патмос', rate: '3' },
+	{ name: 'Паук', rate: '1' },
+	{ name: 'Пахота', rate: '3' },
+	{ name: 'Пеликан', rate: '1' },
+	{ name: 'Пепел', rate: '2' },
+	{ name: 'Первенец', rate: '1' },
+	{ name: 'Первородства право', rate: '2' },
+	{ name: 'Первосвященник', rate: '2' },
+	{ name: 'Пергам', rate: '3' },
+	{ name: 'Пергамент', rate: '2' },
+	{ name: 'Перевод', rate: '1' },
+	{ name: 'Передник', rate: '3' },
+	{ name: 'Перепел', rate: '1' },
+	{ name: 'Переписчик', rate: '2' },
+	{ name: 'Перепись', rate: '2' },
+	{ name: 'Перес', rate: '3' },
+	{ name: 'Переселение', rate: '2' },
+	{ name: 'Перо', rate: '1' },
+	{ name: 'Персия', rate: '2' },
+	{ name: 'Песнь песней', rate: '1' },
+	{ name: 'Песня', rate: '1' },
+	{ name: 'Песня восхождения', rate: '2' },
+	{ name: 'Песок', rate: '1' },
+	{ name: 'Петух', rate: '1' },
+	{ name: 'Печаль', rate: '1' },
+	{ name: 'Печать', rate: '1' },
+	{ name: 'Печень', rate: '1' },
+	{ name: 'Печь', rate: '1' },
+	{ name: 'Пещера', rate: '1' },
+	{ name: 'Пёс', rate: '1' },
+	{ name: 'Пётр', rate: '1' },
+	{ name: 'Пиво', rate: '1' },
+	{ name: 'Пила', rate: '1' },
+	{ name: 'Пилат', rate: '2' },
+	{ name: 'Пир', rate: '1' },
+	{ name: 'Писание', rate: '1' },
+	{ name: 'Писарь', rate: '3' },
+	{ name: 'Писидия', rate: '3' },
+	{ name: 'Письма', rate: '1' },
+	{ name: 'Письменность', rate: '2' },
+	{ name: 'Пища', rate: '1' },
+	{ name: 'Пиявка', rate: '2' },
+	{ name: 'Плавильщик', rate: '1' },
+	{ name: 'Плата', rate: '1' },
+	{ name: 'Платан', rate: '3' },
+	{ name: 'Плач', rate: '1' },
+	{ name: 'Плач Иеремии', rate: '2' },
+	{ name: 'Племя', rate: '1' },
+	{ name: 'Плен', rate: '1' },
+	{ name: 'Пленник', rate: '2' },
+	{ name: 'Плесень', rate: '1' },
+	{ name: 'Плеть', rate: '1' },
+	{ name: 'Плечо', rate: '1' },
+	{ name: 'Пловец', rate: '1' },
+	{ name: 'Плоскогорье', rate: '1' },
+	{ name: 'Плотник', rate: '2' },
+	{ name: 'Плоть', rate: '1' },
+	{ name: 'Плуг', rate: '2' },
+	{ name: 'Побивание камнями', rate: '2' },
+	{ name: 'Побои', rate: '1' },
+	{ name: 'Повешение', rate: '2' },
+	{ name: 'Повитуха', rate: '3' },
+	{ name: 'Повозка', rate: '2' },
+	{ name: 'Повязка на лбу', rate: '1' },
+	{ name: 'Поговорка', rate: '1' },
+	{ name: 'Погребение', rate: '1' },
+	{ name: 'Погружение в воду', rate: '1' },
+	{ name: 'Подарки', rate: '1' },
+	{ name: 'Подземелье', rate: '1' },
+	{ name: 'Подземелье со львами', rate: '2' },
+	{ name: 'Подневольный труд', rate: '2' },
+	{ name: 'Подножие', rate: '2' },
+	{ name: 'Подчинение', rate: '2' },
+	{ name: 'покорность', rate: '2' },
+	{ name: 'Пожертвование', rate: '1' },
+	{ name: 'Позор', rate: '1' },
+	{ name: 'Поклон', rate: '1' },
+	{ name: 'Поклонение', rate: '1' },
+	{ name: 'Поколение', rate: '1' },
+	{ name: 'Покрывало', rate: '1' },
+	{ name: 'Покрывание головы', rate: '2' },
+	{ name: 'Покупка', rate: '1' },
+	{ name: 'Полба', rate: '3' },
+	{ name: 'Поле', rate: '1' },
+	{ name: 'Полигамия', rate: '2' },
+	{ name: 'Полынь', rate: '2' },
+	{ name: 'Помазание', rate: '1' },
+	{ name: 'Помазанник', rate: '1' },
+	{ name: 'Помёт', rate: '1' },
+	{ name: 'Помощь нуждающимся', rate: '1' },
+	{ name: 'Понимание', rate: '1' },
+	{ name: 'Понтий', rate: '2' },
+	{ name: 'Попечение', rate: '2' },
+	{ name: 'Порей', rate: '3' },
+	{ name: 'Порок', rate: '2' },
+	{ name: 'Поручительство', rate: '2' },
+	{ name: 'Посвящение', rate: '2' },
+	{ name: 'Посвящённое', rate: '2' },
+	{ name: 'Поселенец', rate: '2' },
+	{ name: 'Последние дни', rate: '1' },
+	{ name: 'Послушание', rate: '1' },
+	{ name: 'Посол', rate: '2' },
+	{ name: 'Посох', rate: '1' },
+	{ name: 'Посредник', rate: '3' },
+	{ name: 'Пост', rate: '1' },
+	{ name: 'Постель', rate: '1' },
+	{ name: 'Посторонний', rate: '2' },
+	{ name: 'Пот', rate: '1' },
+	{ name: 'Потифар', rate: '3' },
+	{ name: 'Потомство', rate: '1' },
+	{ name: 'Потоп', rate: '1' },
+	{ name: 'Похвала', rate: '1' },
+	{ name: 'Похороны', rate: '1' },
+	{ name: 'Поцелуй', rate: '1' },
+	{ name: 'Почки', rate: '1' },
+	{ name: 'Пощёчина', rate: '1' },
+	{ name: 'Пояс', rate: '1' },
+	{ name: 'Праведность', rate: '1' },
+	{ name: 'Правитель', rate: '1' },
+	{ name: 'Правительство', rate: '2' },
+	{ name: 'Праздник посвящения', rate: '3' },
+	{ name: 'Праздник трубного звука', rate: '3' },
+	{ name: 'Праздник шалашей', rate: '2' },
+	{ name: 'Празднование субботы', rate: '2' },
+	{ name: 'Прах', rate: '1' },
+	{ name: 'Прачечник', rate: '2' },
+	{ name: 'Праща', rate: '1' },
+	{ name: 'Пращник', rate: '3' },
+	{ name: 'Преданность', rate: '1' },
+	{ name: 'Предатель', rate: '1' },
+	{ name: 'Предвидение', rate: '3' },
+	{ name: 'Предзнаменование', rate: '3' },
+	{ name: 'Предсказатель будущего', rate: '2' },
+	{ name: 'Предшественник', rate: '2' },
+	{ name: 'Прелюбодеяние', rate: '2' },
+	{ name: 'Пренебрежение', rate: '2' },
+	{ name: 'Преображение', rate: '2' },
+	{ name: 'Преследование', rate: '1' },
+	{ name: 'Пресмыкающиеся', rate: '2' },
+	{ name: 'Праздник пресных лепёшек', rate: '2' },
+	{ name: 'Престол', rate: '1' },
+	{ name: 'Преступление', rate: '1' },
+	{ name: 'Приближение к Богу', rate: '2' },
+	{ name: 'Прививка', rate: '2' },
+	{ name: 'Привлекательность', rate: '2' },
+	{ name: 'Привратник', rate: '2' },
+	{ name: 'Привязанность', rate: '2' },
+	{ name: 'Приговор', rate: '1' },
+	{ name: 'Придворный', rate: '2' },
+	{ name: 'Призрак', rate: '1' },
+	{ name: 'Примеры', rate: '1' },
+	{ name: 'Примета', rate: '1' },
+	{ name: 'Примирение', rate: '2' },
+	{ name: 'Приношения', rate: '2' },
+	{ name: 'Природа', rate: '1' },
+	{ name: 'Приска', rate: '2' },
+	{ name: 'Присутствие', rate: '2' },
+	{ name: 'Притвор', rate: '3' },
+	{ name: 'Притча', rate: '1' },
+	{ name: 'Пришелец', rate: '2' },
+	{ name: 'Провидец', rate: '2' },
+	{ name: 'Провинция', rate: '2' },
+	{ name: 'Прозелит', rate: '2' },
+	{ name: 'Прозорливец', rate: '2' },
+	{ name: 'Проказа', rate: '1' },
+	{ name: 'Проклятие', rate: '1' },
+	{ name: 'Проконсул', rate: '3' },
+	{ name: 'Проповедник', rate: '1' },
+	{ name: 'проповедь', rate: '1' },
+	{ name: 'Пророк', rate: '1' },
+	{ name: 'Пророчество', rate: '1' },
+	{ name: 'Пророчица', rate: '1' },
+	{ name: 'Просить милостыню', rate: '2' },
+	{ name: 'Просо', rate: '2' },
+	{ name: 'Проститутка', rate: '1' },
+	{ name: 'Пространство', rate: '2' },
+	{ name: 'Проступок', rate: '2' },
+	{ name: 'Противник', rate: '1' },
+	{ name: 'Проценты', rate: '1' },
+	{ name: 'Прощение', rate: '1' },
+	{ name: 'Прядение', rate: '2' },
+	{ name: 'Птицелов', rate: '1' },
+	{ name: 'Птицы', rate: '1' },
+	{ name: 'Публий', rate: '3' },
+	{ name: 'Пугало', rate: '1' },
+	{ name: 'Пуд', rate: '3' },
+	{ name: 'Пур', rate: '3' },
+	{ name: 'Пурим', rate: '2' },
+	{ name: 'Пурпурный цвет', rate: '2' },
+	{ name: 'Пустыня', rate: '1' },
+	{ name: 'Путеолы', rate: '3' },
+	{ name: 'Путь', rate: '2' },
+	{ name: 'Пчела', rate: '1' },
+	{ name: 'Пшеница', rate: '1' },
+	{ name: 'Пыль, прах', rate: '2' },
+	{ name: 'Пьянство', rate: '2' },
+	{ name: 'Пядь', rate: '2' },
+	{ name: 'Пятидесятница', rate: '1' },
+	{ name: 'Пятикнижие', rate: '2' },
+	{ name: 'Пятка', rate: '1' },
+
+	{ name: 'Магия', rate: '1' },
+	{ name: 'Магог', rate: '2' },
+	{ name: 'Малахия', rate: '1' },
+	{ name: 'Мальта', rate: '2' },
+	{ name: 'Манассия', rate: '2' },
+	{ name: 'Мандрагора', rate: '3' },
+	{ name: 'Манна', rate: '1' },
+	{ name: 'Мардохей', rate: '2' },
+	{ name: 'Мария', rate: '1' },
+	{ name: 'Маслина', rate: '1' },
+	{ name: 'Масличная гора', rate: '1' },
+	{ name: 'Масло', rate: '1' },
+	{ name: 'Масляное дерево', rate: '2' },
+	{ name: 'Матфан', rate: '3' },
+	{ name: 'Матфей', rate: '1' },
+	{ name: 'Мать', rate: '1' },
+	{ name: 'Мафусал', rate: '2' },
+	{ name: 'Мегиддо', rate: '2' },
+	{ name: 'Медведь', rate: '1' },
+	{ name: 'Медная змея', rate: '3' },
+	{ name: 'Мерзость', rate: '1' },
+	{ name: 'Меч', rate: '1' },
+	{ name: 'Мешковина', rate: '1' },
+	{ name: 'Мёртвое море', rate: '1' },
+	{ name: 'Милет', rate: '3' },
+	{ name: 'Милка', rate: '2' },
+	{ name: 'Милосердие', rate: '1' },
+	{ name: 'Мина', rate: '2' },
+	{ name: 'Мирма', rate: '3' },
+	{ name: 'Михаил', rate: '2' },
+	{ name: 'Михей', rate: '2' },
+	{ name: 'Могила', rate: '1' },
+	{ name: 'Можжевельник', rate: '1' },
+	{ name: 'Молитва', rate: '1' },
+	{ name: 'Молотильные сани', rate: '2' },
+	{ name: 'Молох', rate: '2' },
+	{ name: 'Мотыга', rate: '1' },
+	{ name: 'Мрамор', rate: '1' },
+	{ name: 'Мудрость', rate: '1' },
+	{ name: 'Муха', rate: '1' },
+	{ name: 'Мыслительные способности', rate: '1' },
+	{ name: 'Мякина', rate: '2' },
+	{ name: 'Мясо', rate: '1' },
+	{ name: 'Мятеж', rate: '1' },
+	{ name: 'Навал', rate: '3' },
+	{ name: 'Навеки', rate: '1' },
+	{ name: 'Навоз', rate: '2' },
+	{ name: 'Навин', rate: '1' },
+	{ name: 'Навуходоносор', rate: '1' },
+	{ name: 'Наглол', rate: '3' },
+	{ name: 'Нагрудник', rate: '1' },
+	{ name: 'Наёмный работник', rate: '1' },
+	{ name: 'Назарет', rate: '2' },
+	{ name: 'Назорей', rate: '2' },
+	{ name: 'Накидка', rate: '1' },
+	{ name: 'Наложница', rate: '1' },
+	{ name: 'Намордник', rate: '1' },
+	{ name: 'Наместник', rate: '2' },
+	{ name: 'Нарыв', rate: '1' },
+	{ name: 'Наставление', rate: '2' },
+	{ name: 'Наставник', rate: '1' },
+	{ name: 'Насыпь', rate: '2' },
+	{ name: 'Нафан', rate: '2' },
+	{ name: 'Нахона гумно', rate: '3' },
+	{ name: 'Начальник храма', rate: '2' },
+	{ name: 'Неаполь', rate: '3' },
+	{ name: 'Невод', rate: '1' },
+	{ name: 'Негев', rate: '1' },
+	{ name: 'Недуг', rate: '1' },
+	{ name: 'Неемия', rate: '1' },
+	{ name: 'Нефег', rate: '3' },
+	{ name: 'Нефилимы', rate: '1' },
+	{ name: 'Нигер', rate: '3' },
+	{ name: 'Нимрод', rate: '2' },
+	{ name: 'Ниневия', rate: '1' },
+	{ name: 'Нищие', rate: '1' },
+	{ name: 'Ноеминь', rate: '3' },
+	{ name: 'Ной', rate: '1' },
+	{ name: 'Раав', rate: '1' },
+	{ name: 'Раб', rate: '1' },
+	{ name: 'Рабсак', rate: '3' },
+	{ name: 'Разноплемённый народ', rate: '2' },
+	{ name: 'Ракитник', rate: '3' },
+	{ name: 'Рахиль', rate: '2' },
+	{ name: 'Ревекка', rate: '1' },
+	{ name: 'Ревностный', rate: '1' },
+	{ name: 'Рефаимы', rate: '2' },
+	{ name: 'Рибай', rate: '3' },
+	{ name: 'Рим', rate: '1' },
+	{ name: 'Ровоам', rate: '2' },
+	{ name: 'Родовая община', rate: '1' },
+	{ name: 'Родос', rate: '2' },
+	{ name: 'Рожон', rate: '3' },
+	{ name: 'Руфь', rate: '2' },
+	{ name: 'Магдалина', rate: '1' },
 ]

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components/native'
-import ModalSelector from 'react-native-modal-selector'
+import { Picker } from '@react-native-picker/picker'
 import useSettingsStore from '../../store/SettingsStore'
 
 const DropdownLabel = styled.Text`
@@ -8,6 +8,14 @@ const DropdownLabel = styled.Text`
 	padding: 10px;
 	color: #009688;
 	font-weight: 500;
+`
+
+const PickerContainer = styled.View`
+	border: 1px solid #009688;
+	border-radius: 5px;
+	margin: 10px 0;
+	background-color: transparent;
+	width: 200px;
 `
 
 const DropdownLevels = () => {
@@ -23,31 +31,37 @@ const DropdownLevels = () => {
 		{ key: 4, label: 'Невозможный' },
 	]
 
-	const handleSelection = option => {
-		setSelectedValue(option.label)
-		setDifficultyLevel(option.key)
+	const handleSelection = (key, label) => {
+		setSelectedValue(label)
+		setDifficultyLevel(key)
 	}
 
 	return (
-		<ModalSelector
-			data={data}
-			initValue="Выберете уровень"
-			onChange={handleSelection}
-			backdropPressToClose={true}
-			animationType="fade"
-			selectTextStyle={{ color: 'rgb(0, 255, 234)', fontSize: 16 }}
-			optionTextStyle={{ color: 'rgb(0, 255, 234)', fontSize: 19 }}
-			optionContainerStyle={{ backgroundColor: '#282828' }}
-			sectionTextStyle={{ color: '#000', fontSize: 20 }}
-			cancelText="Отмена"
-			cancelStyle={{ backgroundColor: '#282828' }}
-			cancelTextStyle={{ color: '#fff' }}
-			optionStyle={{
-				borderBottomColor: '#ffffff60',
-			}}
-		>
-			<DropdownLabel>{selectedValue}</DropdownLabel>
-		</ModalSelector>
+		<>
+			{/* <DropdownLabel>{selectedValue}</DropdownLabel> */}
+			<PickerContainer>
+				<Picker
+					selectedValue={selectedValue}
+					onValueChange={(itemValue, itemIndex) =>
+						handleSelection(data[itemIndex].key, itemValue)
+					}
+					mode="dropdown"
+					style={{
+						color: 'rgb(0, 255, 234)',
+						fontSize: 14,
+						backgroundColor: '#000000',
+					}}
+				>
+					{data.map(item => (
+						<Picker.Item
+							key={item.key}
+							label={item.label}
+							value={item.label}
+						/>
+					))}
+				</Picker>
+			</PickerContainer>
+		</>
 	)
 }
 

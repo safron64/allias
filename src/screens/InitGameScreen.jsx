@@ -7,13 +7,13 @@ import Title from '../styles/Title'
 import TeamNameComponent from '../components/TeamName'
 import AddButton from '../components/ui/AddButton'
 import StartGameButton from '../components/ui/StartGameButton'
+import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const InitGameScreen = () => {
 	const navigation = useNavigation()
 	const { selectedTeams, addTeam, removeTeam } = useTeamStore()
-
 	return (
-		<SafeAreaView style={{ backgroundColor: '#282828', flex: 1 }}>
+		<SafeAreaView style={{ backgroundColor: '#121212', flex: 1 }}>
 			<Title>Выберите команды:</Title>
 			<TeamsContainer>
 				{selectedTeams.map((team, index) => (
@@ -39,4 +39,8 @@ const InitGameScreen = () => {
 	)
 }
 
-export default InitGameScreen
+export default SafeAreaWrapper(React.memo(InitGameScreen), {
+	statusBarStyle: 'light-content',
+	statusBarHidden: false,
+	backgroundColor: '#080808',
+})

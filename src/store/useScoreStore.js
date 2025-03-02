@@ -9,10 +9,14 @@ const useScoreStore = create(set => ({
 	scores: {},
 	currentTeamIndex: 0,
 
+	extraRound: false,
+	setExtraRound: value => set({ extraRound: value }),
+
 	setTeams: teams =>
 		set(state => ({
 			scores: teams.reduce((acc, team) => ({ ...acc, [team]: 0 }), {}),
 			currentTeamIndex: 0,
+			extraRound: false, // сбрасываем флаг при установке команд
 		})),
 
 	updateScore: (team, score) =>

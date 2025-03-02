@@ -20,19 +20,19 @@ const getWordsForGame = (data, wordCount, difficultyLevel, usedWords) => {
 			...wordsRate2.slice(0, countRate2),
 		]
 	} else if (difficultyLevel === 2) {
-		// Уровень 2: 10% rate 1, 88% rate 2, 2% rate 3
-		const countRate1 = Math.round(wordCount * 0.1)
-		const countRate2 = Math.round(wordCount * 0.88)
-		const countRate3 = wordCount - countRate1 - countRate2
+		// Уровень 2: 98% rate 2, 2% rate 3
+		// const countRate1 = Math.round(wordCount * 0.1)
+		const countRate2 = Math.round(wordCount * 0.98)
+		const countRate3 = wordCount - countRate2
 
 		selectedWords = [
-			...wordsRate1.slice(0, countRate1),
+			// ...wordsRate1.slice(0, countRate1),
 			...wordsRate2.slice(0, countRate2),
 			...wordsRate3.slice(0, countRate3),
 		]
 	} else if (difficultyLevel === 3) {
-		// Уровень 3: 15% rate 2, 85% rate 3
-		const countRate2 = Math.round(wordCount * 0.15)
+		// Уровень 3: 5% rate 2, 85% rate 3
+		const countRate2 = Math.round(wordCount * 0.05)
 		const countRate3 = wordCount - countRate2
 
 		selectedWords = [
