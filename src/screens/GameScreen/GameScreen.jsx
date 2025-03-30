@@ -1,7 +1,11 @@
-// screens/GameScreen/GameScreen.js
-
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
-import { TouchableOpacity, PanResponder, BackHandler, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import {
+	TouchableOpacity,
+	PanResponder,
+	BackHandler,
+	View,
+	SafeAreaView,
+} from 'react-native'
 import Animated, {
 	useSharedValue,
 	withTiming,
@@ -24,7 +28,6 @@ import timerEndSound from '../../../assets/timer-end.mp3'
 import SelectTeamModal from '../../components/ui/SelectTeamModal'
 import { CircleBg } from '../../components/CircleBg'
 import { BottomBar, TopBar } from '../../components/GameUI'
-import { SafeAreaView } from 'react-native'
 import SafeAreaWrapper from '../../HOC/SafeAreaWrapper'
 
 const GameScreen = ({ navigation }) => {
@@ -52,7 +55,8 @@ const GameScreen = ({ navigation }) => {
 
 	// Реализуем анимацию свайпа
 	const translateY = useSharedValue(0)
-	// Инициализация списка слов (можно перенести в startGame, если требуется генерировать слова один раз)
+
+	// Инициализация списка слов
 	useEffect(() => {
 		const initialWords = getWordsForGame(
 			data,
@@ -74,7 +78,7 @@ const GameScreen = ({ navigation }) => {
 		return () => backHandler.remove()
 	}, [])
 
-	// Таймер игры (каждую секунду уменьшаем timer, когда игра запущена и не на паузе)
+	// Таймер игры
 	useEffect(() => {
 		if (isGameStarted && !isGamePaused && timer > 0) {
 			const interval = setInterval(() => {
@@ -82,7 +86,6 @@ const GameScreen = ({ navigation }) => {
 					if (prev === 1) {
 						clearInterval(interval)
 						setTimerEnded(true)
-						// setIsGameStarted(false)
 						playSound(timerEndSound, 0.5)
 						return 0
 					}
@@ -93,7 +96,8 @@ const GameScreen = ({ navigation }) => {
 		}
 	}, [isGameStarted, isGamePaused, timer])
 
-	const showNextWord = useCallback(() => {
+	// Переход к следующему слову
+	const showNextWord = () => {
 		if (words.length > 0) {
 			const nextWord = words[0]
 			setCurrentWord(nextWord)
@@ -102,14 +106,15 @@ const GameScreen = ({ navigation }) => {
 			setIsGameStarted(false)
 			setTimerEnded(true)
 		}
-	}, [words])
+	}
 
-	const adjustFontSize = useCallback(event => {
+	// Подгонка размера шрифта
+	const adjustFontSize = event => {
 		const { width } = event.nativeEvent.layout
 		if (width > 270) {
 			setFontSize(prev => Math.max(prev - 2, 12))
 		}
-	}, [])
+	}
 
 	const startGame = () => {
 		console.log('ad')
@@ -124,74 +129,64 @@ const GameScreen = ({ navigation }) => {
 	}
 
 	// Обработка статуса слова (отгадано/пропущено)
-	const handleWordStatus = useCallback(
-		status => {
-			// Формируем новый массив для локального хранения слов раунда
-			const updatedWordsArray = [
-				...localWordsArray,
-				{ word: currentWord, status },
-			]
-			console.log(updatedWordsArray)
-			setLocalWordsArray(updatedWordsArray)
-			// Добавляем текущее слово в глобальное хранилище (функция в zustand выполняет append)
-			setWordsArray([{ word: currentWord, status }])
+	const handleWordStatus = status => {
+		const wordObj = { word: currentWord, status, team: undefined }
+		const updatedWordsArray = [...localWordsArray, wordObj]
+		console.log(updatedWordsArray)
+		setLocalWordsArray(updatedWordsArray)
+		setWordsArray([wordObj])
 
-			// Обновляем счёт раунда
-			if (status === true && !timerEnded) {
-				setGuessedWords(prev => prev + 1)
-			} else if (status === false && !timerEnded) {
-				setSkippedWords(prev => prev + 1)
+		if (status === true && !timerEnded) {
+			setGuessedWords(prev => prev + 1)
+		} else if (status === false && !timerEnded) {
+			setSkippedWords(prev => prev + 1)
+		}
+
+		if (timerEnded) {
+			if (status === true) {
+				setShowModal(true)
+				setIsGameStarted(false)
+			} else {
+				navigation.navigate('RoundResultsScreen', {
+					wordsArray: updatedWordsArray,
+				})
 			}
+			return
+		}
 
-			if (timerEnded) {
-				if (status === true) {
-					setShowModal(true)
-					setIsGameStarted(false)
-				} else {
-					navigation.navigate('RoundResultsScreen', {
-						wordsArray: updatedWordsArray,
-					})
-				}
-				return
+		showNextWord()
+	}
+
+	// Обработка выбора команды из модального окна
+	const handleTeamSelect = teamName => {
+		setShowModal(false)
+		const updatedLocalWords = [...localWordsArray]
+		if (updatedLocalWords.length > 0) {
+			updatedLocalWords[updatedLocalWords.length - 1] = {
+				...updatedLocalWords[updatedLocalWords.length - 1],
+				team: teamName,
 			}
-
-			showNextWord()
-		},
-		[
-			currentWord,
-			localWordsArray,
-			timerEnded,
-			navigation,
-			showNextWord,
-			setWordsArray,
-		]
-	)
-
-	const handleTeamSelect = useCallback(
-		teamName => {
-			setShowModal(false)
-			useScoreStore.getState().updateScore(teamName, 1)
-			navigation.navigate('RoundResultsScreen', {
-				wordsArray: localWordsArray,
-			})
-		},
-		[navigation, localWordsArray]
-	)
+		}
+		setLocalWordsArray(updatedLocalWords)
+		navigation.navigate('RoundResultsScreen', {
+			wordsArray: updatedLocalWords,
+		})
+	}
 
 	// Завершение свайпа вверх: отгадано слово
-	const finishSwipeUp = useCallback(() => {
+	const finishSwipeUp = () => {
 		handleWordStatus(true)
 		translateY.value = 0
-	}, [handleWordStatus, translateY])
+	}
 
 	// Завершение свайпа вниз: слово пропущено
-	const finishSwipeDown = useCallback(() => {
+	const finishSwipeDown = () => {
 		handleWordStatus(false)
 		translateY.value = 0
-	}, [handleWordStatus, translateY])
+	}
 
 	// Обработчик свайпа вверх
-	const handleSwipeUp = useCallback(() => {
+	const handleSwipeUp = () => {
 		if (!isGameStarted || isGamePaused) return
 		translateY.value = withTiming(-800, { duration: 300 }, finished => {
 			if (finished) {
@@ -199,10 +194,10 @@ const GameScreen = ({ navigation }) => {
 			}
 		})
 		playSound(swipeUpSound, 0.5)
-	}, [isGameStarted, timerEnded, isGamePaused, translateY, finishSwipeUp])
+	}
 
 	// Обработчик свайпа вниз
-	const handleSwipeDown = useCallback(() => {
+	const handleSwipeDown = () => {
 		if (!isGameStarted || isGamePaused) return
 		translateY.value = withTiming(800, { duration: 300 }, finished => {
 			if (finished) {
@@ -210,31 +205,20 @@ const GameScreen = ({ navigation }) => {
 			}
 		})
 		playSound(swipeDownSound, 0.5)
-	}, [isGameStarted, timerEnded, isGamePaused, translateY, finishSwipeDown])
+	}
 
 	// Пан-резонер для обработки жестов свайпа
-	const panResponder = useMemo(
-		() =>
-			PanResponder.create({
-				onMoveShouldSetPanResponder: () => true,
-				onPanResponderRelease: (evt, gestureState) => {
-					// console.log(isGameStarted, isGamePaused)
-					if (!isGameStarted || isGamePaused) return
-					if (gestureState.dy < -50) {
-						handleSwipeUp()
-					} else if (gestureState.dy > 50) {
-						handleSwipeDown()
-					}
-				},
-			}),
-		[
-			isGameStarted,
-			timerEnded,
-			isGamePaused,
-			handleSwipeUp,
-			handleSwipeDown,
-		]
-	)
+	const panResponder = PanResponder.create({
+		onMoveShouldSetPanResponder: () => true,
+		onPanResponderRelease: (evt, gestureState) => {
+			if (!isGameStarted || isGamePaused) return
+			if (gestureState.dy < -50) {
+				handleSwipeUp()
+			} else if (gestureState.dy > 50) {
+				handleSwipeDown()
+			}
+		},
+	})
 
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
@@ -286,7 +270,7 @@ const GameScreen = ({ navigation }) => {
 	)
 }
 
-export default SafeAreaWrapper(React.memo(GameScreen), {
+export default SafeAreaWrapper(GameScreen, {
 	statusBarStyle: 'light-content',
 	statusBarHidden: false,
 	backgroundCoslor: '#080808',

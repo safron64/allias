@@ -18,14 +18,9 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "bible.alias"
+      "bundleIdentifier": "bible.alias",
+      "newArchEnabled": true
     },
-    "extra": {
-      "eas": {
-        "projectId": "33764b1d-a25d-4a4e-824b-ca446adf3bcb"
-      }
-    },
-    "owner": "nktssfrn",
     "android": {
       "package": "bible.alias",
       "icon": "./assets/logo.png",
@@ -39,6 +34,14 @@
       "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "33764b1d-a25d-4a4e-824b-ca446adf3bcb"
+      }
+    },
+    "owner": "nktssfrn",
+    "plugins": [
+    ]
   }
 }

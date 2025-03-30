@@ -23,7 +23,7 @@ const RoundResultsScreen = ({ route, navigation }) => {
 		wordsArray.map(word => ({
 			word: word.word,
 			status: word.status,
-			team: undefined,
+			team: word.team,
 		}))
 	)
 
@@ -46,6 +46,8 @@ const RoundResultsScreen = ({ route, navigation }) => {
 		setExtraRound,
 		scores,
 	} = useScoreStore()
+	console.log(scores)
+
 	const { selectedTeams } = useTeamStore()
 	const currentTeam = selectedTeams[currentTeamIndex]
 
@@ -54,12 +56,16 @@ const RoundResultsScreen = ({ route, navigation }) => {
 
 	// Локальный счёт раунда, вычисляемый на основании массива слов
 	const [score, setScore] = useState(() =>
-		wordStatusArray.reduce(
-			(total, word) =>
-				total +
-				(word.status === true ? 1 : word.status !== undefined && -0),
-			0
-		)
+		wordStatusArray.reduce((total, word) => {
+			console.log('asdfasdf', word.status === true)
+			if (
+				word.status === true &&
+				(word.team === undefined || word.team === currentTeam)
+			) {
+				return total + 1
+			}
+			return total
+		}, 0)
 	)
 
 	// Функция для открытия модального окна
@@ -90,13 +96,13 @@ const RoundResultsScreen = ({ route, navigation }) => {
 			setWordStatusArray(prevArray => {
 				const updatedArray = [...prevArray]
 				const currentStatus = updatedArray[index].status
-				// Если для последнего слова уже выбрана команда – отменяем выбор
+				// Если для последнего слова уже выбрана команда – отменяем выбор и корректируем счёт
 				if (updatedArray[index].team === currentTeam) {
 					updatedArray[index].team = undefined
-					setScore(prevScore => prevScore - 0)
+					setScore(prevScore => prevScore - 1)
 				} else if (updatedArray[index].team) {
 					// Если выбрана другая команда, то корректируем общий счёт этой команды
-					updateScore(updatedArray[index].team, -0)
+					updateScore(updatedArray[index].team, -1)
 					updatedArray[index].team = undefined
 				}
 				// Переключаем статус слова
@@ -104,7 +110,7 @@ const RoundResultsScreen = ({ route, navigation }) => {
 				return updatedArray
 			})
 			// Если слово переключается в состояние "отгадано", открываем модальное окно для выбора команды
-			if (!wordStatusArray[index].status) {
+			if (wordStatusArray[index].status) {
 				openModal()
 			}
 		} else {
@@ -114,13 +120,10 @@ const RoundResultsScreen = ({ route, navigation }) => {
 				updatedArray[index].status = !currentStatus
 				return updatedArray
 			})
-			// При переключении не последнего слова корректируем счёт (например, +2 или -2)
-			setScore(prevScore => {
-				// Здесь логика расчёта может быть изменена под ваши нужды
-				return wordStatusArray[index].status
-					? prevScore + 1
-					: prevScore - 1
-			})
+			// При переключении не последнего слова корректируем счёт (например, +1 или -1)
+			setScore(prevScore =>
+				wordStatusArray[index].status ? prevScore + 1 : prevScore - 1
+			)
 		}
 	}
 

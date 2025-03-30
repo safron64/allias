@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 import SafeAreaWrapper from '../HOC/SafeAreaWrapper'
 
 const Container = styled.View`
-	background-color: #282828;
+	background-color: #121212;
 	justify-content: space-between;
 	padding: 20px;
 	align-items: center;
@@ -53,7 +53,7 @@ const Column = styled.View`
 
 const RulesScreen = () => {
 	return (
-		<View style={{ backgroundColor: '#282828', flex: 1 }}>
+		<View style={{ backgroundColor: '#121212', flex: 1 }}>
 			<Container>
 				<StatusBar barStyle="light-content" />
 				<Title>Bible alias</Title>
@@ -105,5 +105,5 @@ const RulesScreen = () => {
 export default SafeAreaWrapper(React.memo(RulesScreen), {
 	statusBarStyle: 'light-content',
 	statusBarHidden: false,
-	backgroundColor: '#080808',
+	backgroundColor: '#121212',
 })

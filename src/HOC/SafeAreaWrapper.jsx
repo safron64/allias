@@ -7,23 +7,41 @@ const SafeAreaWrapper = (WrappedComponent, options = {}) => {
 			statusBarStyle = 'light-content',
 			statusBarHidden = false,
 			backgroundColor = '#080808',
+			bottomBackgroundColor = backgroundColor,
 		} = options
 
 		return (
-			<SafeAreaView style={[styles.container, { backgroundColor }]}>
-				<StatusBar
-					barStyle={statusBarStyle}
-					hidden={statusBarHidden}
-					backgroundColor={backgroundColor}
-				/>
-				<WrappedComponent {...props} />
-			</SafeAreaView>
+			<>
+				<SafeAreaView
+					style={[styles.topContainer, { backgroundColor }]}
+					edges={['top']} // Только верхняя часть
+				>
+					<StatusBar
+						barStyle={statusBarStyle}
+						hidden={statusBarHidden}
+						backgroundColor={backgroundColor}
+					/>
+				</SafeAreaView>
+
+				<SafeAreaView
+					style={[
+						styles.bottomContainer,
+						{ backgroundColor: bottomBackgroundColor },
+					]}
+					edges={['bottom']}
+				>
+					<WrappedComponent {...props} />
+				</SafeAreaView>
+			</>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
-	container: {
+	topContainer: {
+		flex: 0,
+	},
+	bottomContainer: {
 		flex: 1,
 	},
 })

@@ -133,7 +133,7 @@ const StartGameScreen = ({ navigation }) => {
 			</Header>
 
 			<RoundInfo>
-				<RoundText>Раунд 1 / Игра 1</RoundText>
+				<RoundText>Раунд 1</RoundText>
 				<RoundText>Готовятся к игре</RoundText>
 				{selectedTeams.length > 0 && (
 					<ActiveTeamText>{currentTeam}</ActiveTeamText>
@@ -151,4 +151,5 @@ export default SafeAreaWrapper(React.memo(StartGameScreen), {
 	statusBarStyle: 'dark-content',
 	statusBarHidden: false,
 	backgroundColor: '#00ffd2',
+	bottomBackgroundColor: '#121212',
 })
