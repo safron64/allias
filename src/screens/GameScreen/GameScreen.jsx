@@ -64,7 +64,6 @@ const GameScreen = ({ navigation }) => {
 			difficultyLevel,
 			globalWordsArray.map(item => item.word)
 		)
-		console.log('asdfasdf', initialWords)
 		setWords(initialWords)
 	}, [difficultyLevel, roundTime, globalWordsArray])
 
@@ -117,7 +116,6 @@ const GameScreen = ({ navigation }) => {
 	}
 
 	const startGame = () => {
-		console.log('ad')
 		setIsGameStarted(true)
 		setIsGamePaused(false)
 		setTimer(roundTime)
@@ -132,7 +130,6 @@ const GameScreen = ({ navigation }) => {
 	const handleWordStatus = status => {
 		const wordObj = { word: currentWord, status, team: undefined }
 		const updatedWordsArray = [...localWordsArray, wordObj]
-		console.log(updatedWordsArray)
 		setLocalWordsArray(updatedWordsArray)
 		setWordsArray([wordObj])
 
