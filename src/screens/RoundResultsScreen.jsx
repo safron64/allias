@@ -57,7 +57,6 @@ const RoundResultsScreen = ({ route, navigation }) => {
 	// Локальный счёт раунда, вычисляемый на основании массива слов
 	const [score, setScore] = useState(() =>
 		wordStatusArray.reduce((total, word) => {
-			console.log('asdfasdf', word.status === true)
 			if (
 				word.status === true &&
 				(word.team === undefined || word.team === currentTeam)
